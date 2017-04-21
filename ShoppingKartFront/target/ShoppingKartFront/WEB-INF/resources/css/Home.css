@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+
+li{
+	display:inline;
+	padding-right:10px;
+}
+ ul a:hover{
+ text-decoration:overline;
+ }
+ body{
+ background-color:orange;
+ font-family:sans-serif;
+ 
+ }
+ 

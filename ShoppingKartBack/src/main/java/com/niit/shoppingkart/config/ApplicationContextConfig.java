@@ -18,9 +18,12 @@ import com.niit.shoppingkart.dao.MykartDAO;
 import com.niit.shoppingkart.dao.UserDAO;
 import com.niit.shoppingkart.daoimp.MykartDAOImpl;
 import com.niit.shoppingkart.daoimp.UserDAOImpl;
+import com.niit.shoppingkartback.domain.Billingaddress;
 import com.niit.shoppingkartback.domain.Category;
 import com.niit.shoppingkartback.domain.Mykart;
 import com.niit.shoppingkartback.domain.Product;
+import com.niit.shoppingkartback.domain.Role;
+import com.niit.shoppingkartback.domain.Shippingaddress;
 import com.niit.shoppingkartback.domain.Supplier;
 
 /*import org.hibernate.SessionFactory;
@@ -76,6 +79,9 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Mykart.class);
+		sessionBuilder.addAnnotatedClass(Shippingaddress.class);
+		sessionBuilder.addAnnotatedClass(Billingaddress.class);
+		sessionBuilder.addAnnotatedClass(Role.class);
 
 		//sessionBuilder.scanPackages("com.niit");
 		return sessionBuilder.buildSessionFactory();

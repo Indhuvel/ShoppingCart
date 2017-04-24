@@ -16,22 +16,24 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-    private String name;
+    private String productname;
     private String description;
     private String price;
-    private String category_id;
-    private String supplier_id;
+	private int stock;
+	private String category;
+	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	
+	public String getProductname() {
+		return productname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
 	public String getDescription() {
 		return description;
@@ -45,17 +47,18 @@ public class Product {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getCategory_id() {
-		return category_id;
+	
+	public int getStock() {
+		return stock;
 	}
-	public void setCategory_id(String category_id) {
-		this.category_id = category_id;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
-	public String getSupplier_id() {
-		return supplier_id;
+	public String getCategory() {
+		return category;
 	}
-	public void setSupplier_id(String supplier_id) {
-		this.supplier_id = supplier_id;
+	public void setCategory(String category) {
+		this.category = category;
 	}
     
 }

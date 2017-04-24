@@ -15,9 +15,12 @@ public class Supplier {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-    private String name;
+    private String sname;
+	private String sdescription;
 	private String address;
 	private String email;
+	private String contact;
+	private String citycode;
 	
 	public String getEmail() {
 		return email;
@@ -31,11 +34,11 @@ public class Supplier {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getSName() {
+		return sname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSName(String sname) {
+		this.sname = sname;
 	}
 	public String getAddress() {
 		return address;
@@ -43,4 +46,23 @@ public class Supplier {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public String getSDescription() {
+		return sdescription;
+	}
+	public void setSDescription(String description) {
+		this.sdescription = description;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	public String getCitycode() {
+		return citycode;
+	}
+	public void setCitycode(String citycode) {
+		this.citycode = citycode;
+	}
+	
 }

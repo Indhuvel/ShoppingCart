@@ -44,5 +44,12 @@ public class HomeController {
 		
 		return "Home";
 	}
-
+	@RequestMapping("/SupplierPage")
+	public String supplierPage(Model model)
+	{
+		model.addAttribute("isUserClickedSupplier", "true");
+		
+		return "Home";
+	}
 }
+ 

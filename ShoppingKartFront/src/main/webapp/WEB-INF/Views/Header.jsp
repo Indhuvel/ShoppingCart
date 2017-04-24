@@ -91,5 +91,5 @@ li:hover a
  
  </style>
 </head>
-<body background ="resources/images/s1.jpg">
+<body background ="resources/images/add.jpg">
  

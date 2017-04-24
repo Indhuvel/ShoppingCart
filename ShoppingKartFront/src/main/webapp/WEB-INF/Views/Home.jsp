@@ -2,8 +2,8 @@
 <jsp:include page="Header.jsp"></jsp:include>
 
 <div class="header">
- <a href="#"> <img src="img/logo.png" alt="logo" /></a>
-<center><h1>EeKartz</h1></center>
+<!--  <a href="#"> <img src="img/logo.png" alt="logo" /></a>
+ --><center><h1>EeKartz</h1></center>
  
 </div>
 	
@@ -24,6 +24,8 @@
     <c:if test="${isUserClickedProducts=='true' }">
 		<jsp:include page="Products.jsp"></jsp:include>
 	</c:if>
-    
+     <c:if test="${isUserClickedSupplier=='true' }">
+		<jsp:include page="Supplier.jsp"></jsp:include>
+	</c:if>
 <jsp:include page="Footer.jsp"></jsp:include>
   

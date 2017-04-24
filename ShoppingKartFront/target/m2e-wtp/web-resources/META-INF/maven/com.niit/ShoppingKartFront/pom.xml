@@ -22,6 +22,14 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 		</dependency>
+
+		<!-- ShoppingKart back end project dependcy -->
+		<dependency>
+			<groupId>com.niit</groupId>
+			<artifactId>ShoppingKartBack</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
 			<groupId>org.springframework</groupId>

@@ -15,8 +15,8 @@ public class Supplier {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-    private String sname;
-	private String sdescription;
+    private String suppliername;
+	private String supplierdescription;
 	private String address;
 	private String email;
 	private String contact;
@@ -34,11 +34,11 @@ public class Supplier {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getSName() {
-		return sname;
+	public String getSuppliername() {
+		return suppliername;
 	}
-	public void setSName(String sname) {
-		this.sname = sname;
+	public void setSuppliername(String suppliername) {
+		this.suppliername = suppliername;
 	}
 	public String getAddress() {
 		return address;
@@ -47,10 +47,10 @@ public class Supplier {
 		this.address = address;
 	}
 	public String getSDescription() {
-		return sdescription;
+		return supplierdescription;
 	}
-	public void setSDescription(String description) {
-		this.sdescription = description;
+	public void setSupplierdescription(String supplierdescription) {
+		this.supplierdescription = supplierdescription;
 	}
 	public String getContact() {
 		return contact;

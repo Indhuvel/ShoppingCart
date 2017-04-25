@@ -36,7 +36,7 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 	public boolean validate(String id, String password) {
-		Query query=	 sessionFactory.getCurrentSession().createQuery(" from Mykart where id = ? and password = ?");
+		Query query=sessionFactory.getCurrentSession().createQuery(" from Mykart where id = ? and password = ?");
 		query.setString(1, id);     
 		query.setString(2, password);
 		 if(  query.uniqueResult()  == null)
@@ -54,8 +54,10 @@ public class MykartDAOImpl implements MykartDAO {
 	
 
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
+		Mykart mykartToDelete = new Mykart();
+		mykartToDelete.setId(id);
+		sessionFactory.getCurrentSession().delete(mykartToDelete);
+			
 	}
 
 

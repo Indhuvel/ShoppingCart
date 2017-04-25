@@ -8,7 +8,7 @@ public interface CategoryDAO {
 	
 	public List<Category> list();
 	public Category getById(String id);
-
+//public Category getByName(String name);
 	public void saveOrUpdate(Category category);
 		
 	public void delete(String id);

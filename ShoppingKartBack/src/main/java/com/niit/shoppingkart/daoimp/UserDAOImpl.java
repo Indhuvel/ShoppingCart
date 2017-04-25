@@ -1,6 +1,8 @@
 package com.niit.shoppingkart.daoimp;
 
 import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,7 +38,17 @@ public class UserDAOImpl implements UserDAO {
 			sessionFactory.getCurrentSession().saveOrUpdate(user);
 			
 		}
-	public boolean isValidCredentials(String id, String password) {
+	
+	public boolean isValidCredentials(String email, String password) {
+		String hql = "from User where email= '" + email + "' and " + " password ='" + password+"'";
+		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> list = (List<User>) query.list();
+		if (list != null && !list.isEmpty()) {
+			return true;
+		}
 		return false;
 	}
-}
+
+	}
+

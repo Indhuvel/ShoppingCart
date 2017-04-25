@@ -10,7 +10,7 @@ public interface UserDAO {
 
 	public List<User> list();
 
-	public boolean isValidCredentials(String id, String password);
+	public boolean isValidCredentials(String email, String password);
 
 	public void saveOrUpdate(User user);
 

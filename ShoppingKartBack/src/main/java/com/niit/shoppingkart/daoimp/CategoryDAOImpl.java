@@ -52,6 +52,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		categoryToDelete.setId(id);
 		sessionFactory.getCurrentSession().delete(categoryToDelete);
 	}
-
-
+    /*public Category getByName(String name){
+	return (Category)getCurrentSession().createQuery("from Category where name=?")
+	.setString(0,name).uniqueResult();}*/
 }

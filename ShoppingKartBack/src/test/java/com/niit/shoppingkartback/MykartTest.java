@@ -39,7 +39,7 @@ public class MykartTest {
 	public void createMykartTest()
 	{
 		
-		mykart.setName("Suveen Kumar");
+		mykart.setName("Jenu");
 		mykart.setQuantity("1");
 		mykart.setPrice("365");
 		mykart.setDate("02/02/17");

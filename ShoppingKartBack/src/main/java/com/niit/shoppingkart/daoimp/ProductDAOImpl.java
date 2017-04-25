@@ -36,7 +36,9 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
+		Product productToDelete = new Product();
+		productToDelete.setId(id);
+		sessionFactory.getCurrentSession().delete(productToDelete);
+			
 	}
 }

@@ -46,21 +46,20 @@ public class UserTest {
 		user.setcontact("9876543210");
 		user.setUsername("Priya");
 		user.setPassword("priya");
-		
 		user.setAddress("xyz");
 	    user.setEmail("abc@gmail.com");	
 		
-	    category.setName("mobile");
-		category.setDescription("world's best choice");
+	    category.setCategoryname("mobile");
+		category.setCategorydescription("world's best choice");
 		
-		supplier.setSName("Sony");
+		supplier.setSuppliername("Sony");
 		supplier.setAddress("XY");
 		supplier.setEmail("sony@gmail.com");
-		supplier.setSDescription("best to buy");
+		supplier.setSupplierdescription("best to buy");
 		supplier.setContact("0422673288");
 		supplier.setCitycode("641054");
 		
-		product.setProductName("micromax");
+		product.setProductname("micromax");
 		product.setPrice("9500");
 		product.setDescription("best battery life");
 		product.setCategory("Android");

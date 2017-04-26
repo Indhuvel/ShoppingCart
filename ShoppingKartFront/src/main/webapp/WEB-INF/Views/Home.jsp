@@ -6,7 +6,7 @@
  --><center><h1>EeKartz</h1></center>
  
 </div>
-	
+	<span style="color: white;">${message}${email }</span>
 	<jsp:include page="Menu.jsp"></jsp:include>
 	<jsp:include page="carousel1.jsp"></jsp:include>
 	
@@ -26,6 +26,9 @@
 	</c:if>
      <c:if test="${isUserClickedSupplier=='true' }">
 		<jsp:include page="Supplier.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${isUserClickedCategory=='true' }">
+		<jsp:include page="Category.jsp"></jsp:include>
 	</c:if>
 <jsp:include page="Footer.jsp"></jsp:include>
   

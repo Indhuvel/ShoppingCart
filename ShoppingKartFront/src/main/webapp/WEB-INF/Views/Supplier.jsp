@@ -1,15 +1,15 @@
 <div class="container">
 	<div class="row">
-<form class="form-horizontal">
+<form class="form-horizontal" action="newSupplier" method="post">
 <fieldset>
 
 <!-- Form Name -->
 <div class="form-group">
  <legend>Supplier</legend>
 
-  <label class="col-md-4 control-label" for="product">Supplier Name</label>
+  <label class="col-md-4 control-label" for="Supplier">Supplier Name</label>
   <div class="col-md-6">
-      <input id="name" name="sname" type="text" placeholder="Supplier Name" class="form-control input-md" >
+      <input id="name" name="suppliername" type="text" placeholder="Supplier Name" class="form-control input-md" >
 </div>
 </div>
 
@@ -17,7 +17,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Desc">Description</label>  
   <div class="col-md-6">
-  <input id="desc" name="sdescription" type="text" placeholder="Descripton" class="form-control input-md" >
+  <input id="desc" name="supplierdescription" type="text" placeholder="Descripton" class="form-control input-md" >
     
   </div>
 </div>
@@ -25,7 +25,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="price">Email</label>  
   <div class="col-md-6">
-  <input id="price" name="email" type="text" placeholder="Price"class="form-control input-md" >
+  <input id="email" name="email" type="text" placeholder="Email"class="form-control input-md" >
     
   </div>
 </div>
@@ -34,7 +34,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="stock">Address</label>  
   <div class="col-md-6">
-  <input id="stock" name="address" type="text" placeholder="Available" class="form-control input-md" >
+  <input id="addr" name="address" type="text" placeholder="Address" class="form-control input-md" >
     
   </div>
 </div>
@@ -42,20 +42,25 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="post">Contact</label>  
+  <label class="col-md-4 control-label" for="contact">Contact</label>  
   <div class="col-md-6">
-  <input id="post" name="contact" type="text"  class="form-control input-md" required/>
+  <input id="contact" name="contact" type="text"  class="form-control input-md" required/>
     
   </div>
 </div>
 <div class="form-group">
-  <label class="col-md-4 control-label" for="post">Zipcode</label>  
+  <label class="col-md-4 control-label" for="code">Zipcode</label>  
   <div class="col-md-6">
-  <input id="post" name="citycode" type="text"  class="form-control input-md" required/>
+  <input id="code" name="citycode" type="text"  class="form-control input-md" required/>
     
   </div>
 </div>
-
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">ADD</button>
+  </div>
+</div>
 
 </fieldset>
 </form>

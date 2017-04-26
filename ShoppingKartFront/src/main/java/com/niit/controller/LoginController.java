@@ -1,29 +1,30 @@
 package com.niit.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-//import com.niit.shoppingkart.dao.userDAO;
-public class LoginController 
-{
-  /*userDAO userdao;
-   
-	public ModelAndView showMessage(String name,String password )
-	{
+import com.niit.shoppingkart.dao.UserDAO;
+@Controller
+
+public class LoginController {
+	@Autowired
+	private UserDAO userDAO;
+	
+
+	@RequestMapping("signIn")
+	public ModelAndView showMessage(String email, String password) {
 		System.out.println("in controller");
-	String message;
-	if(userdao.isValiduser(name,password))
-	{
-		message="Valid Credentials";
-	}else{
-		message="Invalid Credentials";
-    }
-	ModelAndView mv=new ModelAndView("Success");
-	mv.addObject("messsage",message);
-	mv.addObject("name",name);
-	return mv;
-	}*/
+		String message;
+		if (userDAO.isValidCredentials(email, password)) {
+			message = "Valid Credentials";
+		} else {
+			message = "Invalid Credentials";
+		}
+		ModelAndView mv = new ModelAndView("Home");
+		mv.addObject("message", message);
+		mv.addObject("email", email);
+		return mv;
+	}
 }

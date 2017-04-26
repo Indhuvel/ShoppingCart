@@ -17,14 +17,14 @@
 
 <div class="panel-body">
 			    	
-<form>
+<form action="signIn" method="post" >
 			    	  	
 <div class="form-group">
 	<label for="email" class="cols-sm-2 control-label">Email ID</label>
     <div class="cols-sm-10">
 	<div class="input-group">
 		<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-		<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"required/>
+		<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
 								</div>
 							</div>
 						</div>
@@ -35,7 +35,7 @@
 	<div class="cols-sm-10">
 	<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-				<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"required/>
+				<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
 								</div>
 							</div>
 						</div>

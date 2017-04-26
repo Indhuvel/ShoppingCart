@@ -6,18 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.niit.shoppingkart.dao.SupplierDAO;
-import com.niit.shoppingkartback.domain.Supplier;
+import com.niit.shoppingkart.dao.CategoryDAO;
+import com.niit.shoppingkartback.domain.Category;
+
 
 @Controller
-public class SupplierController {
+public class CategoryController {
 	@Autowired
-	private SupplierDAO supplierDAO;
+	private CategoryDAO categoryDAO;
 	
-	@RequestMapping("newSupplier")
-	public String newUser(@ModelAttribute Supplier supplier, Model model){
-		supplierDAO.saveOrUpdate(supplier);
-		model.addAttribute("isUserClickedSupplier", "true");
+	@RequestMapping("newCategory")
+	public String newUser(@ModelAttribute Category category, Model model){
+		categoryDAO.saveOrUpdate(category);
+		model.addAttribute("isUserClickedCategory", "true");
 		return "Home";
 		
 	}

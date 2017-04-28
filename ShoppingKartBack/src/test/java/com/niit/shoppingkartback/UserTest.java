@@ -62,7 +62,6 @@ public class UserTest {
 		product.setProductname("micromax");
 		product.setPrice("9500");
 		product.setDescription("best battery life");
-		product.setCategory("Android");
 		product.setStock(13);
 		
 		shippingaddress.setName("Jenu");

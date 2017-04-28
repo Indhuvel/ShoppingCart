@@ -1,4 +1,4 @@
-package com.niit.shoppingkart.dao;
+ package com.niit.shoppingkart.dao;
 
 import java.util.List;
 

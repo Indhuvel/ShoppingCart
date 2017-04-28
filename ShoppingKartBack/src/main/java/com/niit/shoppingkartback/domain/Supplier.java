@@ -1,9 +1,13 @@
 package com.niit.shoppingkartback.domain;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -22,6 +26,16 @@ public class Supplier {
 	private String contact;
 	private String citycode;
 	
+ @OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
+ public Set<Product> products;
+	
+	
+	public Set<Product> getProducts() {
+	return products;
+}
+public void setProducts(Set<Product> products) {
+	this.products = products;
+}
 	public String getEmail() {
 		return email;
 	}

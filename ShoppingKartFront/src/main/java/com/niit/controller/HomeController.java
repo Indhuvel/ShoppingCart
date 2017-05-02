@@ -1,5 +1,6 @@
 package com.niit.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,7 +33,7 @@ public class HomeController {
 		List<Category> categoryList= categoryDAO.list();
 		
 		session.setAttribute("categoryList",categoryList);
-		session.setAttribute("1", category);
+		session.setAttribute("category", category);
 		return mv;
 	}
 	
@@ -42,6 +43,8 @@ public class HomeController {
 	{
 		model.addAttribute("isUserClickedLogin", "true");
 	
+		Long currentTime=System.currentTimeMillis();
+		Date currentDate=new Date(currentTime);
 		return "Home";
 	}
 	

@@ -2,8 +2,7 @@
 <jsp:include page="Header.jsp"></jsp:include>
 
 <div class="header">
-<!--  <a href="#"> <img src="img/logo.png" alt="logo" /></a>
- --><center><h1>EeKartz</h1></center>
+<center><h1>EeKartz</h1></center>
  
 </div>
 	<span style="color: white;">${message}${email }</span>

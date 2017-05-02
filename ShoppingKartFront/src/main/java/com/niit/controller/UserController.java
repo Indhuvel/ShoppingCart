@@ -23,9 +23,4 @@ public class UserController {
 		
 	}
 	
-	/*@RequestMapping("signIn")
-	public String signIn(){
-		System.out.println("igdgaigycibchayuagxjhhbaudauydhhd");
-		return "Home";
-	}
-*/}
+}

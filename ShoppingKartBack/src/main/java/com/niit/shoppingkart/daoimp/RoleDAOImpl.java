@@ -13,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.shoppingkart.dao.RoleDAO;
 import com.niit.shoppingkartback.domain.Role;
 
-
-
 @Transactional
 @Repository("RoleDAO")
 public class RoleDAOImpl implements RoleDAO {
@@ -48,19 +46,6 @@ public class RoleDAOImpl implements RoleDAO {
 		
 	}
 
-	
-	public Role getByMailId(String Mailid) {
-		String hql = "from Role where id ='" + Mailid + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Role> listRole = (List<Role>) (query).list();
-
-		if (listRole != null && !listRole.isEmpty()) {
-			return listRole.get(0);
-		}
-		return null;
-	}
-
 	public Role getByContact(String contact) {
 		String hql = "from Role where contact ='" + contact + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
@@ -86,6 +71,19 @@ public class RoleDAOImpl implements RoleDAO {
 	public void saveOrUpdate(Role role) {
 		sessionFactory.getCurrentSession().saveOrUpdate(role);
 		
+	}
+
+
+	public Role getByEmail(String email) {
+		String hql = "from Role where email ='" + email + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Role> listRole = (List<Role>) (query).list();
+
+		if (listRole != null && !listRole.isEmpty()) {
+			return listRole.get(0);
+		}
+		return null;
 	}
 
 	

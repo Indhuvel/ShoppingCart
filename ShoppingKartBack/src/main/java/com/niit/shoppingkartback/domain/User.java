@@ -1,9 +1,12 @@
 package com.niit.shoppingkartback.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -23,8 +26,26 @@ public class User {
 	private String contact;
 	private String address;
 	private int zipcode;
+	
+	private boolean enabled;
 
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="id")
+	private Role role;
 
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -72,5 +93,5 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 }

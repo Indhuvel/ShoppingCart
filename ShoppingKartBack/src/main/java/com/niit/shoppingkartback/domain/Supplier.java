@@ -1,13 +1,9 @@
 package com.niit.shoppingkartback.domain;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -19,6 +15,8 @@ public class Supplier {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
+	
+	
     private String suppliername;
 	private String supplierdescription;
 	private String address;
@@ -26,7 +24,7 @@ public class Supplier {
 	private String contact;
 	private String citycode;
 	
- @OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
+ /*@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
  public Set<Product> products;
 	
 	
@@ -35,7 +33,7 @@ public class Supplier {
 }
 public void setProducts(Set<Product> products) {
 	this.products = products;
-}
+}*/
 	public String getEmail() {
 		return email;
 	}
@@ -60,12 +58,7 @@ public void setProducts(Set<Product> products) {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getSDescription() {
-		return supplierdescription;
-	}
-	public void setSupplierdescription(String supplierdescription) {
-		this.supplierdescription = supplierdescription;
-	}
+	
 	public String getContact() {
 		return contact;
 	}
@@ -78,5 +71,10 @@ public void setProducts(Set<Product> products) {
 	public void setCitycode(String citycode) {
 		this.citycode = citycode;
 	}
-	
+	public String getSupplierdescription() {
+		return supplierdescription;
+	}
+	public void setSupplierdescription(String supplierdescription) {
+		this.supplierdescription = supplierdescription;
+	}
 }

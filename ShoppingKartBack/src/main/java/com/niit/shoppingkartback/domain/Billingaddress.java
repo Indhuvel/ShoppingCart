@@ -15,6 +15,7 @@ public class Billingaddress {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private String bid;
+	
     private String name;
 	private String contact;
 	private String address;

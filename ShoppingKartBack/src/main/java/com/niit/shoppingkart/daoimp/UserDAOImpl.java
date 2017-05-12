@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingkart.dao.UserDAO;
+import com.niit.shoppingkartback.domain.Supplier;
 import com.niit.shoppingkartback.domain.User;
 
 @Transactional
@@ -21,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 	public UserDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	public User get(String id) {
+	public User getById(String id) {
 		User user = (User) sessionFactory.getCurrentSession().get(User.class, id);
 		 
 		 return user;
@@ -49,6 +50,16 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}
-
+	public User getByMailId(String mailid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void delete(String id) {
+		User userToDelete = new User();
+		userToDelete.setId(id);
+		sessionFactory.getCurrentSession().delete(userToDelete);
+		
+	}
+	
 	}
 

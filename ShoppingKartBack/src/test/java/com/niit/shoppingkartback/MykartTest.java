@@ -24,7 +24,7 @@ public class MykartTest {
 	public static void initialize()
 	{
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.niit");
+		context.scan("com.niit.shoppingkart");
 		context.refresh();
 		
 		//get the userDAO from context

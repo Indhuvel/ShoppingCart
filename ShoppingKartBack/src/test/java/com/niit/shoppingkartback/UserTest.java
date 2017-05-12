@@ -21,7 +21,7 @@ public class UserTest {
 
 	public static void main(String args[]){
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.scan("com.niit.*");
+		context.scan("com.niit.shoppingkart");
 		context.refresh();
 		
 		System.out.println("hai");
@@ -55,14 +55,16 @@ public class UserTest {
 		supplier.setSuppliername("Sony");
 		supplier.setAddress("XY");
 		supplier.setEmail("sony@gmail.com");
-		supplier.setSupplierdescription("best to buy");
 		supplier.setContact("0422673288");
 		supplier.setCitycode("641054");
+		supplier.setSupplierdescription("new");
 		
 		product.setProductname("micromax");
 		product.setPrice("9500");
 		product.setDescription("best battery life");
 		product.setStock(13);
+		product.setCategory("mb");
+		product.setSuppliername("max");
 		
 		shippingaddress.setName("Jenu");
 		shippingaddress.setEmail("jenu@gmail.com");
@@ -76,7 +78,7 @@ public class UserTest {
 		billingaddress.setAddress("chennai");
 		billingaddress.setCitycode("600028");
 		
-		role.setName("Vel");
+		role.setUsername("Vel");
 		role.setContact("8934512676");
 		role.setEmail("vel23@yahoo.com");
 		role.setRole("User");

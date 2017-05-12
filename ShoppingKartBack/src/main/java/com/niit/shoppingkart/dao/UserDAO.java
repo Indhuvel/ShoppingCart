@@ -6,7 +6,7 @@ import com.niit.shoppingkartback.domain.User;
 
 public interface UserDAO {
 	
-	public User get(String id);
+	public User getById(String id);
 
 	public List<User> list();
 
@@ -14,4 +14,14 @@ public interface UserDAO {
 
 	public void saveOrUpdate(User user);
 
+	public User getByMailId(String mailid);
+
+	public void delete(String id);
+
+
+
 }
+
+
+
+

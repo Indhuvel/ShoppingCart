@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 import com.niit.shoppingkart.dao.MykartDAO;
 import com.niit.shoppingkart.dao.UserDAO;
 import com.niit.shoppingkart.daoimp.MykartDAOImpl;
@@ -39,7 +40,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;*/
 import com.niit.shoppingkartback.domain.User;
 
 @Configuration
-@ComponentScan("com.niit.*")
+@ComponentScan("com.niit.shoppingkart")
 @EnableTransactionManagement
 public class ApplicationContextConfig {
 
@@ -105,4 +106,5 @@ public class ApplicationContextConfig {
 	public MykartDAO getMykartDAO(SessionFactory sessionFactory) {
 		return new MykartDAOImpl(sessionFactory);
 	}
+	
  }

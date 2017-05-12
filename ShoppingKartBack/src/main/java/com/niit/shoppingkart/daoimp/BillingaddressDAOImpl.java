@@ -14,6 +14,7 @@ import com.niit.shoppingkartback.domain.Billingaddress;
 @Transactional
 @Repository("BillingaddressDAO")
 public class BillingaddressDAOImpl implements BillingaddressDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	

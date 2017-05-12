@@ -10,12 +10,14 @@ public interface RoleDAO {
 	
 	public Role getByName(String username);
 	
-	public Role getByMailId(String Mailid);
+	public Role getByEmail(String email);
 	
 	public Role getByContact(String contact);
 
 	public void delete(String username);
 
 	public void saveOrUpdate(Role role);
+	
+	
 
 }

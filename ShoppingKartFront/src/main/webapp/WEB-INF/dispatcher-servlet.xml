@@ -12,7 +12,11 @@
 
 	<context:component-scan base-package="com.niit.*" />
 
-	<bean
+<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+ 
+
+	<bean   
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/Views/</value>
@@ -21,6 +25,8 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	
 <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"
 		cache-period="31556926" />
 	<mvc:annotation-driven />

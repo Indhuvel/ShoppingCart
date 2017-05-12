@@ -2,12 +2,32 @@
 <jsp:include page="Header.jsp"></jsp:include>
 
 <div class="header">
-<center><h1>EeKartz</h1></center>
+<center><h1>EeKartz</h1></center>  
  
 </div>
 	<span style="color: white;">${message}${email }</span>
 	<jsp:include page="Menu.jsp"></jsp:include>
 	<jsp:include page="carousel1.jsp"></jsp:include>
+	
+	<c:if test="${isAdmin=='true'}">
+	
+    <jsp:include page="/WEB-INF/Views/adminLogin.jsp"></jsp:include>
+
+</c:if>  
+
+<c:if test="${isAdminClickedCategory=='true'}">
+
+<jsp:include page="/WEB-INF/Views/Category.jsp"></jsp:include>  
+
+</c:if>
+
+	<c:if test="${isAdminClickedSuppliers=='true'}">
+<jsp:include page="/WEB-INF/Views/Supplier.jsp"></jsp:include> <br>
+</c:if>
+
+<c:if test="${isAdminClickedProducts=='true'}">
+<jsp:include page="/WEB-INF/Views/Products.jsp"></jsp:include> <br>
+</c:if>
 	
 
 	<br>
@@ -29,5 +49,8 @@
 	<c:if test="${isUserClickedCategory=='true' }">
 		<jsp:include page="Category.jsp"></jsp:include>
 	</c:if>
+	
+
+	
 <jsp:include page="Footer.jsp"></jsp:include>
   

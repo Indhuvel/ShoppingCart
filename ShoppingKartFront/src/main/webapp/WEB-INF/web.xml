@@ -11,11 +11,7 @@
 		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
 	</context-param>
 
-	<listener>
-		<listener-class>
-    	               org.springframework.web.context.ContextLoaderListener
-                </listener-class>
-	</listener>
+	
   
     <servlet>
 		<servlet-name>dispatcher</servlet-name>
@@ -29,4 +25,9 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<listener>
+		<listener-class>
+    	               org.springframework.web.context.ContextLoaderListener
+                </listener-class>
+	</listener>
 </web-app>

@@ -1,42 +1,7 @@
-<!-- <article class="col-lg-12"   style="display: inline-block;">
-  <h2>GALLERY</h2>
-<div class="row">
-  <div class="col-md-3 col-xs-6">
-  <div class="thumbnail">
-  <img class="img-responsive" src="resources/images/m.png" alt="">
-  <h4></h4>
-  </div>
-  </div>
 
-<div class="col-md-3 col-xs-6">
-  <div class="thumbnail" >
-  <img class="img-responsive" src="resources/images/m1.jpg" alt="">
-  <h4></h4>
-  </div>
-  </div>
-  
-  <div class="col-md-3 col-xs-6">
-  <div class="thumbnail">
-  <img class="img-responsive" src="resources/images/m2.jpg" alt="">
-  <h4></h4>
-  </div>
-  </div>
-  
-  <div class="col-md-3 col-xs-6">
-  <div class="thumbnail">
-  <img class="img-responsive" src="resources/images/m6.png" alt="">
-  <h4></h4>
-  </div>
-  </div>
-
-</div>
-</article>
- -->
- 
- 
-<div class="container">
+ <div class="container">
 	<div class="row">
-<form class="form-horizontal" action="newProduct" method="post">
+<form action="newProduct" method="post" onsubmit="return formProduct()" enctype="multipart/form-data"  class="form-horizontal" >
 <fieldset>
 
 <!-- Form Name -->
@@ -45,7 +10,7 @@
 
   <label class="col-md-4 control-label" for="product">Product Name</label>
   <div class="col-md-6">
-      <input id="name" name="productname" type="text" placeholder="Product Name" class="form-control input-md" >
+      <input id="productname" name="productname" type="text" placeholder="Product Name" class="form-control input-md" >
 </div>
 </div>
 
@@ -53,16 +18,35 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Desc">Description</label>  
   <div class="col-md-6">
-  <input id="desc" name="description" type="text" placeholder="Descripton" class="form-control input-md" >
+  <input id="description" name="description" type="text" placeholder="Descripton" class="form-control input-md" >
     
   </div>
 </div>
-
 <div class="form-group">
-  <label class="col-md-4 control-label" for="price">Price</label>  
+  <label class="col-md-4 control-label" for="post">Category</label>  
   <div class="col-md-6">
-  <input id="price" name="price" type="text" placeholder="Price"class="form-control input-md" >
-    
+  <select name="Category">
+  <br><br><option value="">Select Category</option><br><br>
+  <c:forEach items="${categoryList}" var="category" varStatus="status"><br><br>
+  <option value="${category.categoryname}">${category.categoryname}</option>
+  </c:forEach>
+</select>
+ 
+<!--   <input id="category" name="category" type="text"  class="form-control input-md" />
+ -->    
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="post">SupplierName</label>  
+  <div class="col-md-6">
+  <select name="SupplierName"><br><br>
+  <option value="">Select Supplier</option><br><br>
+  <c:forEach items="${supplierList}" var="supplier" varStatus="status"><br><br>
+  <option value="${supplier.suppliername}">${supplier.suppliername}</option>
+  </c:forEach>
+</select>
+<!--   <input id="supplier" name="supplier" type="text"  class="form-control input-md" />
+ -->    
   </div>
 </div>
 
@@ -74,16 +58,21 @@
     
   </div>
 </div>
-
-
-<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="post">Category</label>  
+  <label class="col-md-4 control-label" for="price">Price</label>  
   <div class="col-md-6">
-  <input id="post" name="category" type="text"  class="form-control input-md" required/>
+  <input id="price" name="price" type="text" placeholder="Price"class="form-control input-md" >
     
   </div>
 </div>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="post">file to upload</label>  
+  <div class="col-md-6">
+  <input id="file" name="image" type="file"  class="form-control input-md" />
+    
+  </div>
+</div>
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
@@ -95,3 +84,21 @@
 </form>
 	</div>
 </div>
+
+<%-- Category:<br>
+  <select name="Category">
+  <br><br><option value="">Select Category</option><br><br>
+  <c:forEach items="${categoryList}" var="category" varStatus="status"><br><br>
+  <option value="${category.categoryname}">${category.categoryname}</option>
+  </c:forEach>
+</select>
+ 
+ <br><br> SupplierName:<br>
+  <select name="SupplierName"><br><br>
+  <option value="">Select Supplier</option><br><br>
+  <c:forEach items="${supplierList}" var="supplier" varStatus="status"><br><br>
+  <option value="${supplier.suppliername}">${supplier.suppliername}</option>
+  </c:forEach>
+</select>
+
+ --%>

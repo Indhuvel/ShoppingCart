@@ -71,6 +71,7 @@ public class Product {
 		this.stock = stock;
 	}
 
+	
 	public String getSuppliername() {
 		return suppliername;
 	}

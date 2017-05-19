@@ -22,8 +22,8 @@ public class UserDAOImpl implements UserDAO {
 	public UserDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	public User getById(String id) {
-		User user = (User) sessionFactory.getCurrentSession().get(User.class, id);
+	public User getById(String email) {
+		User user = (User) sessionFactory.getCurrentSession().get(User.class, email);
 		 
 		 return user;
 	}

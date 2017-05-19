@@ -16,8 +16,10 @@ public class Mykart {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
 	private String name;
-	private String price;
+	private String productname;
 	private String date;
+	private String price;
+
 	private String quantity;
 	private String total;
 	public String getId() {
@@ -56,5 +58,12 @@ public class Mykart {
 	public void setTotal(String total) {
 		this.total = total;
 	}
+	public String getProductname() {
+		return productname;
+	}
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+	
 	
 	}

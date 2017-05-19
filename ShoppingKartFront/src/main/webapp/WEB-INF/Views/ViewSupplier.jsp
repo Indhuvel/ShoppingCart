@@ -25,8 +25,8 @@
 <td>${supplier.email}</td>
 <td>${supplier.contact}</td>
 <td>${supplier.citycode}</td>
-<td>Edit</td>
-<td>Delete</td>
+<td><a class="btn btn-info" href="editSupplier?supplierId=${supplier.id}">Edit</a></td>
+<td><a class="btn btn-info" href="deleteSupplier?supplierId=${supplier.id}">Delete</a></td>
 </tr>
 
 </c:forEach> 

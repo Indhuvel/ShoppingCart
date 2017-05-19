@@ -11,24 +11,24 @@
         <ul class="dropdown-menu">
           <li><a href="ViewProductsPage">View</a></li>
            <li><a href="ProductsPage">Add</a></li>
-            <li><a href="EditProductsPage">Edit</a></li>
-           </ul></li> 
+<!--             <li><a href="EditProductsPage">Edit</a></li>
+ -->          </ul></li> 
                  
 <li class="dropdown"><a data-toggle="dropdown" href="#">SUPPLIER<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="ViewSupplierPage">View</a></li>
            <li><a href="SupplierPage">Add</a></li>
-            <li><a href="EditSupplierPage">Edit</a></li>
-           </ul></li>
+<!--           <li><a href="EditSupplierPage">Edit</a></li>
+ -->          </ul></li>
            
            <li class="dropdown"><a data-toggle="dropdown" href="#">CATEGORY<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="ViewCategoryPage">View</a></li>
            <li><a href="CategoryPage">Add</a></li>
-            <li><a href="EditCategoryPage">Edit</a></li>
-          </ul></li>  
-            <li style="float:right;"><a href="#">LOGOUT</a></li>
-            </c:when>      
+<!--             <li><a href="EditCategoryPage">Edit</a></li>
+ -->          </ul></li>  
+            <li style="float:right;"><a href="logout">LOGOUT</a></li>
+            </c:when>      	
     
 
   <c:when test="${isUser=='true'}">
@@ -52,7 +52,7 @@
             	</div>
             </form>
 <li style="float:right;"><a href="RegistrationPage"><span class="glyphicon glyphicon-hand-right"></span> Register</a></li>
-   <li class="active" style="float:right;"><a href="LoginPage" class="active" id="login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+   <li class="active" style="float:right;"><a href="loginPage" class="active" id="login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
 
 
 </c:otherwise>

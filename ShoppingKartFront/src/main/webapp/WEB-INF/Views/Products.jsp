@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
  <div class="container">
 	<div class="row">
@@ -39,7 +40,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="post">SupplierName</label>  
   <div class="col-md-6">
-  <select name="SupplierName"><br><br>
+  <select name="suppliername"><br><br>
   <option value="">Select Supplier</option><br><br>
   <c:forEach items="${supplierList}" var="supplier" varStatus="status"><br><br>
   <option value="${supplier.suppliername}">${supplier.suppliername}</option>

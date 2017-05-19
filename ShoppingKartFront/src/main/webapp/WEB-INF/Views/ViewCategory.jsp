@@ -21,9 +21,9 @@
 <td>${category.id}</td>
 <td>${category.categoryname}</td>
 <td>${category.categorydescription}</td>
-<td>Edit</td>
-<td>Delete</td>
-</tr>
+<td><a class="btn btn-info" href="editCategory?categoryId=${category.id}">Edit</a></td>
+<td><a class="btn btn-info" href="deleteCategory?categoryId=${category.id}">Delete</a></td>
+</tr> 
 
 </c:forEach>
 

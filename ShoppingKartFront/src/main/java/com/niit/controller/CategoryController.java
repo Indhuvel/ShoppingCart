@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.shoppingkart.dao.CategoryDAO;
 import com.niit.shoppingkartback.domain.Category;
@@ -42,13 +43,30 @@ public class CategoryController {
 		model.addAttribute("isAdminClickedViewCategory", "true");
 		return "adminLogin";
 	}
-
-	@RequestMapping("/EditCategoryPage")
-	public String EditCategoryPage(Model model) {
-		model.addAttribute("isAdmin", "true");
-
-		model.addAttribute("isAdminClickedEditCategory", "true");
+	@RequestMapping("editCategory")
+	public String editCategory(@RequestParam("categoryId") String categoryId, Model model){
+		
+		Category category = categoryDAO.getById(categoryId);
+		model.addAttribute("category", category);
+		model.addAttribute("isAdminClickedEditCategory", true);
 		return "adminLogin";
+	
+}
+	@RequestMapping("afterEditcategory")
+	public String afterEdit(@ModelAttribute Category category){
+		categoryDAO.saveOrUpdate(category);
+		return "redirect:ViewCategoryPage";
 	}
+	@RequestMapping("deleteCategory")
+	public String deleteCategory(@RequestParam(value = "categoryId") String id){
+		categoryDAO.delete(id);
+		return "redirect:/ViewCategoryPage";
+		
+	}
+	@ModelAttribute
+	public void adminCategory(Model model){
+		model.addAttribute("isAdmin", "true");
+	}
+	
 
 }

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.shoppingkart.dao.SupplierDAO;
-import com.niit.shoppingkartback.domain.Product;
 import com.niit.shoppingkartback.domain.Supplier;
 
 @Controller
@@ -45,15 +45,28 @@ public class SupplierController {
 		model.addAttribute("isAdminClickedViewSupplier", "true");
 		return "adminLogin";
 	}
-	
-	@RequestMapping("/EditSupplierPage")
-	public String EditSupplierPage(Model model)
-	{
-		model.addAttribute("isAdmin", "true");
-
-		model.addAttribute("isAdminClickedEditSupplier", "true");
+	@RequestMapping("editSupplier")
+	public String editSupplier(@RequestParam("supplierId") String supplierId, Model model){
+		
+		Supplier supplier = supplierDAO.getById(supplierId);
+		model.addAttribute("supplier", supplier);
+		model.addAttribute("isAdminClickedEditSupplier", true);
 		return "adminLogin";
 	
-	
+}
+	@RequestMapping("aftereditsupplier")
+	public String afterEdit(@ModelAttribute Supplier supplier){
+		supplierDAO.saveOrUpdate(supplier);
+		return "redirect:ViewSupplierPage";
+	}
+	@RequestMapping("deleteSupplier")
+	public String deleteSupplier(@RequestParam(value = "supplierId") String id){
+		supplierDAO.delete(id);
+		return "redirect:/ViewSupplierPage";
+		
+	}
+	@ModelAttribute
+	public void adminSupplier(Model model){
+		model.addAttribute("isAdmin", "true");
 	}
 }

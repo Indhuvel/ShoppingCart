@@ -53,16 +53,18 @@ public class UserController {
 		
 	}
 	@RequestMapping("/afterlogin")
-	public String afterLogin(Principal p, Model model){
+	public String afterlogin(Principal p, Model model){
 		String mailid = p.getName();
 		User user = userDAO.getById(mailid);
 		
 		Role role = roleDAO.getByEmail(mailid);
 		
 		String r = role.getRole();
-		
+		System.out.println(r);
 		if(r.equals("ROLE_ADMIN")){
 			
+			model.addAttribute("isAdmin", "true");
+
 			return "adminLogin";
 		}
 		else if(r.equals("ROLE_USER")){
@@ -71,6 +73,8 @@ public class UserController {
 			List<Product> productList = productDAO.list();
 			model.addAttribute("productList", productList);
 			
+			model.addAttribute("isUser", "true");
+
 			return "userLogin";
 		}
 		else{

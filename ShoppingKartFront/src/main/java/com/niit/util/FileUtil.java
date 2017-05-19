@@ -22,14 +22,10 @@ public class FileUtil {
 	public static void upload(String path, MultipartFile file, String fileName) {
 		log.debug("Starting of the method upload");
 		log.debug("Current Path :" + Paths.get("").toFile()	);
-		
+		System.out.println(fileName);
 		Util.removeComman(fileName);
 		if (!file.isEmpty()) {
-			
-			
-		
-			
-			try {
+				try {
 			byte[] bytes = file.getBytes();
 
 			// Creating the directory to store file
@@ -84,7 +80,7 @@ public class FileUtil {
 	
 	
 	
-	
+		
 	
 	
 	

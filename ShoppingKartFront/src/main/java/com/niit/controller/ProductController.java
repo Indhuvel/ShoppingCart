@@ -41,7 +41,7 @@ public class ProductController {
 		FileUtil.upload(path, file, product.getId()+ ".jpg");
 		
 		model.addAttribute("isUserClickedProducts", "true");
-		return "Home";
+		return "redirect:ViewProducts";
 		
 	}
 
@@ -74,14 +74,35 @@ public class ProductController {
 		return "adminLogin";
 	}
 	
-	
-	@RequestMapping("/EditProductsPage")
-	public String EditProductsPage(Model model)
-	{
-		model.addAttribute("isAdmin", "true");
-
-		model.addAttribute("isAdminClickedEditProducts", "true");
+	@RequestMapping("editProducts")
+	public String editProducts(@RequestParam("productId") String productId, Model model){
+		List<Category> categoryList = categoryDAO.list();
+		List<Supplier> supplierList = supplierDAO.list();
+		
+		Product product = productDAO.getById(productId);
+		model.addAttribute("product", product);
+		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("supplierList", supplierList);
+		model.addAttribute("isAdminClickedEditProducts", true);
 		return "adminLogin";
+	}
+	@RequestMapping("afterEditproducts")
+    public String afterEdit(@ModelAttribute Product product){
+	productDAO.saveOrUpdate(product);
+	return "redirect:ViewProductsPage";
+}
+
+	
+	@RequestMapping("deleteProducts")
+	public String deleteProducts(@RequestParam(value = "productId") String id){
+		productDAO.delete(id);
+		return "redirect:/ViewProductsPage";
+		
+	}
+	
+	@ModelAttribute
+	public void adminProducts(Model model){
+		model.addAttribute("isAdmin", "true");
 	}
 
 	}

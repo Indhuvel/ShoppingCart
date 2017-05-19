@@ -12,7 +12,6 @@ import com.niit.shoppingkart.dao.UserDAO;
 import com.niit.shoppingkartback.domain.Role;
 
 @Controller
-
 public class LoginController {
 	@Autowired
 	private UserDAO userDAO;
@@ -22,7 +21,7 @@ public class LoginController {
 	@Autowired
 	private Role role;
 
-	@RequestMapping("signIn")
+	/*@RequestMapping("")
 	public String showMessage(@RequestParam(value = "email") String email,
 			@RequestParam(value = "password") String password, Model model) {
 		System.out.println("in controller");
@@ -55,5 +54,5 @@ public class LoginController {
 			
 		}
 		return mess;
-	}
+	}*/
 }

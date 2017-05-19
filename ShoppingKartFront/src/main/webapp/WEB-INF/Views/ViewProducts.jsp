@@ -11,11 +11,11 @@
 <th>ProductName</th>
 <th>ProductDescription</th>
 <th>Category</th>
-<th>supplier</th>
-<th>price</th>
-<th>stock</th>
+<th>SupplierName</th>
+<th>Price</th>
+<th>Stock</th>
 <th>EDIT</th>
-<th> DELETE</th>
+<th>DELETE</th>
 </tr>
 
 <c:forEach items="${productList}" var="product" varStatus="status">
@@ -28,8 +28,8 @@
 <td>${product.suppliername}</td>
 <td>${product.price}</td>
 <td>${product.stock}</td>
-<td>Edit</td> 
-<td>Delete</td>
+<td><a class="btn btn-info" href="editProducts?productId=${product.id}">Edit</a></td> 
+<td><a class="btn btn-info" href="deleteProducts?productId=${product.id}">Delete</a></td>
 </tr>
 
 </c:forEach>

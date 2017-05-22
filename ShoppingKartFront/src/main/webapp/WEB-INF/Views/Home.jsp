@@ -2,14 +2,41 @@
 <jsp:include page="Header.jsp"></jsp:include>
 
 <div class="header">
-<center><h1>EeKartz</h1></center>  
- 
+	<center>
+		<h1>EeKartz</h1>
+	</center>
+
 </div>
-	<span style="color: white;">${message}${email }</span>
-	<jsp:include page="Menu.jsp"></jsp:include>
-	<jsp:include page="carousel1.jsp"></jsp:include>
-	
-	<c:if test="${isAdmin=='true'}">
+<span style="color: white;">${message}${email }</span>
+<jsp:include page="Menu.jsp"></jsp:include>
+<jsp:include page="carousel1.jsp"></jsp:include>
+
+
+<c:choose>
+	<c:when test="${not empty isUserClickedLogin}">
+
+		<%@include file="/WEB-INF/Views/Login.jsp"%>
+	</c:when>
+
+	<c:when test="${not empty isUserClickedRegister}">
+
+		<%@include file="/WEB-INF/Views/Registration.jsp"%>
+	</c:when>
+
+	<c:when test="${not empty productdescClicked}">
+
+		<%@include file="/WEB-INF/Views/ProductDescription.jsp"%>
+	</c:when>
+
+	<c:otherwise>
+		<%@include file="/WEB-INF/Views/ProductList.jsp"%>
+	</c:otherwise>
+</c:choose>
+
+
+
+
+<%-- <c:if test="${isAdmin=='true'}">
 	
     <jsp:include page="/WEB-INF/Views/adminLogin.jsp"></jsp:include>
 
@@ -49,8 +76,8 @@
 	<c:if test="${isUserClickedCategory=='true' }">
 		<jsp:include page="Category.jsp"></jsp:include>
 	</c:if>
-	
+	 --%>
 
-	
+
 <jsp:include page="Footer.jsp"></jsp:include>
-  
+

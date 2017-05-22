@@ -8,14 +8,16 @@
 
 <link rel="stylesheet" type="text/css" href="resources/css/Search.css">
 <link rel="stylesheet" type="text/css" href="resources/css/Navbar.css">
-
+ <link rel="stylesheet" type="text/css" href="resources/css/Grid.css">
+ 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="resources/js/jquery.js"></script>
-
+ <script type="text/javascript" src="resources/js/Grid.js"></script>
+ 
 <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
  <script type="text/javascript">
  
@@ -343,6 +345,22 @@ li:hover a {
 	display: inline;
 	text-align: center;
 }
+
+.img {
+    position: relative;
+    float: left;
+    height: 300px;
+    background-position: 200% 200%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    
+   /*  background-color: lightgrey;
+    width: 400px;
+    border: 25px solid olive; */
+    padding: 10px;
+    margin: 15px;
+}
+
 </style>
 </head>
 <body background="resources/images/">

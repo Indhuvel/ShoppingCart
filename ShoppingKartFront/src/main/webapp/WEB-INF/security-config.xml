@@ -19,7 +19,7 @@
 			password-parameter="password" />
 
 		<security:logout
-            logout-success-url="/loginpage?logout" logout-url="/logout" />
+            logout-success-url="/loginPage?logout" logout-url="/logout" />
             <security:csrf disabled="true"/>
       
 

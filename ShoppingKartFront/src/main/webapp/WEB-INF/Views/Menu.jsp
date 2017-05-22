@@ -11,22 +11,19 @@
         <ul class="dropdown-menu">
           <li><a href="ViewProductsPage">View</a></li>
            <li><a href="ProductsPage">Add</a></li>
-<!--             <li><a href="EditProductsPage">Edit</a></li>
- -->          </ul></li> 
+         </ul></li> 
                  
 <li class="dropdown"><a data-toggle="dropdown" href="#">SUPPLIER<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="ViewSupplierPage">View</a></li>
            <li><a href="SupplierPage">Add</a></li>
-<!--           <li><a href="EditSupplierPage">Edit</a></li>
- -->          </ul></li>
+       </ul></li>
            
            <li class="dropdown"><a data-toggle="dropdown" href="#">CATEGORY<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="ViewCategoryPage">View</a></li>
            <li><a href="CategoryPage">Add</a></li>
-<!--             <li><a href="EditCategoryPage">Edit</a></li>
- -->          </ul></li>  
+        </ul></li>  
             <li style="float:right;"><a href="logout">LOGOUT</a></li>
             </c:when>      	
     
@@ -36,7 +33,7 @@
 <li><a href="#">SERVICES</a></li>
       <li><a href="#">ABOUT</a></li>
       <li><a href="#">CONTACT US</a></li>
-<li style="float:right;"><a href="#">LOGOUT</a></li>
+<li style="float:right;"><a href="logout">LOGOUT</a></li>
 </c:when>
 
 <c:otherwise>

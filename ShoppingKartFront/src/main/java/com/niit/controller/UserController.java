@@ -48,6 +48,7 @@ public class UserController {
 		userDAO.saveOrUpdate(user);
 		roleDAO.saveOrUpdate(role);
 		
+		
 		model.addAttribute("isUserClickedLogin", "true");
 		return "Home";
 		

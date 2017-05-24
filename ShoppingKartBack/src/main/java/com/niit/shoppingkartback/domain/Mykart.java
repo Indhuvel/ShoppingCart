@@ -14,30 +14,56 @@ import org.springframework.stereotype.Component;
 public class Mykart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
-	private String name;
+	
+	private String kartid;
+	private String username;
+
+	private String email;
+	private String status;
 	private String productname;
 	private String date;
-	private String price;
-
-	private String quantity;
+	private int price;
+	
+	private String sid;
+    private String quantity;
 	private String total;
-	public String getId() {
-		return id;
+	
+	public String getKartid() {
+		return kartid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setKartid(String kartid) {
+		this.kartid = kartid;
 	}
-	public String getName() {
-		return name;
+	
+	public String getEmail() {
+		return email;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getPrice() {
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getSid() {
+		return sid;
+	}
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public String getDate() {

@@ -60,23 +60,25 @@ public class UserTest {
 		supplier.setSupplierdescription("new");
 		
 		product.setProductname("micromax");
-		product.setPrice("9500");
+		product.setPrice(9500);
 		product.setDescription("best battery life");
 		product.setStock(13);
 		product.setCategory("mb");
 		product.setSuppliername("max");
 		
-		shippingaddress.setName("Jenu");
+		shippingaddress.setUsername("jenu");
 		shippingaddress.setEmail("jenu@gmail.com");
 		shippingaddress.setContact("9012679872");
 		shippingaddress.setAddress("mumbai");
-		shippingaddress.setCitycode("972297");
+		shippingaddress.setCitycode(972297);
 		
 		
-		billingaddress.setName("Mano");
-		billingaddress.setContact("7200383879");
-		billingaddress.setAddress("chennai");
-		billingaddress.setCitycode("600028");
+        billingaddress.setEmail("mm@gmail.com");
+		billingaddress.setAddress("delhi");
+		billingaddress.setCitycode(890005);
+		billingaddress.setUsername("ram");
+		billingaddress.setContact("908764326");
+		
 		
 		role.setUsername("Vel");
 		role.setContact("8934512676");

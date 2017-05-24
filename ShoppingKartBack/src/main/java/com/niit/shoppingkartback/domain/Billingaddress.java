@@ -15,11 +15,11 @@ public class Billingaddress {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private String bid;
-	
-    private String name;
-	private String contact;
+	private String username;
+	private String email;
+    private String contact;
 	private String address;
-	private String citycode;
+	private int citycode;
 	public String getBid() {
 		return bid;
 	}
@@ -27,11 +27,17 @@ public class Billingaddress {
 		this.bid = bid;
 	}
 	
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getContact() {
 		return contact;
@@ -45,11 +51,11 @@ public class Billingaddress {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCitycode() {
+	public int getCitycode() {
 		return citycode;
 	}
-	public void setCitycode(String citycode) {
+	public void setCitycode(int citycode) {
 		this.citycode = citycode;
 	}
-
-}
+	
+	}

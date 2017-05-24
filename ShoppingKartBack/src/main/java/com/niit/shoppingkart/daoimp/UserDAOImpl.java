@@ -2,14 +2,12 @@ package com.niit.shoppingkart.daoimp;
 
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shoppingkart.dao.UserDAO;
-import com.niit.shoppingkartback.domain.Supplier;
 import com.niit.shoppingkartback.domain.User;
 
 @Transactional

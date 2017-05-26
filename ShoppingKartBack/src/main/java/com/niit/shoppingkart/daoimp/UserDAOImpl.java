@@ -1,6 +1,7 @@
 package com.niit.shoppingkart.daoimp;
 
 import java.util.List;
+import org.hibernate.Query;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +49,18 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}
-	public User getByMailId(String mailid) {
-		// TODO Auto-generated method stub
+	public User getByMailId(String email) {
+		String hql = "from User where email ='" + email + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) (query).list();
+
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		
+		}
 		return null;
-	}
+		}
 	public void delete(String id) {
 		User userToDelete = new User();
 		userToDelete.setId(id);

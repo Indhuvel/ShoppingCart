@@ -23,8 +23,8 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 	
 	
-	public Mykart getById(String id) {
-		return 	(Mykart)  sessionFactory.getCurrentSession().get(Mykart.class, id);
+	public Mykart getByKartId(String kartid) {
+		return 	(Mykart)  sessionFactory.getCurrentSession().get(Mykart.class, kartid);
 		
 		
 	}
@@ -35,9 +35,9 @@ public class MykartDAOImpl implements MykartDAO {
 
 	}
 
-	public boolean validate(String id, String password) {
-		Query query=sessionFactory.getCurrentSession().createQuery(" from Mykart where id = ? and password = ?");
-		query.setString(1, id);     
+	public boolean validate(String kartid, String password) {
+		Query query=sessionFactory.getCurrentSession().createQuery(" from Mykart where kartid = ? and password = ?");
+		query.setString(1, kartid);     
 		query.setString(2, password);
 		 if(  query.uniqueResult()  == null)
 		 {
@@ -53,9 +53,9 @@ public class MykartDAOImpl implements MykartDAO {
 		}
 	
 
-	public void delete(String id) {
+	public void delete(int kartid) {
 		Mykart mykartToDelete = new Mykart();
-		mykartToDelete.setKartid(id);
+		mykartToDelete.setKartid(kartid);
 		sessionFactory.getCurrentSession().delete(mykartToDelete);
 			
 	}
@@ -73,7 +73,7 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public List<Mykart> getByEmailId(String email) {
+	public List<Mykart> getByEmail(String email) {
 		String hql = "from Mykart where email ='" + email +"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
@@ -96,16 +96,8 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public Long getTotalAmount(int name) {
-		String hql = "select sum(total) from Mykart where username = " + "'" + name + "'" + "and status = '" + "N" +"'";
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		Long sum = (Long) query.uniqueResult();
-			return sum;
-	}
-
-
-	public boolean itemAlreadyExist(String email, int id, boolean b) {
-		String hql = "from Mykart where emailId= '" + email + "' and " + " productId ='" + id+"'";
+	public boolean itemAlreadyExist(String email, String id, boolean b) {
+		String hql = "from Mykart where email= '" + email + "' and " + " id ='" + id+"'";
 		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Mykart> list = (List<Mykart>) query.list();
@@ -116,8 +108,8 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public Mykart getByUserandProduct(String email, int id) {
-		String hql = "from Mykart where emailId= '" + email + "' and " + " productId ='" + id+"'";
+	public Mykart getByUserandProduct(String email, String id) {
+		String hql = "from Mykart where email= '" + email + "' and " + " id ='" + id+"'";
 		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Mykart> listMykart = (List<Mykart>) query.list();
@@ -129,12 +121,25 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public void updateshipping(String email, int sid) {
-		// TODO Auto-generated method stub
-		String hql = " update Mykart set shippingId = '" + sid + "' where emailId = '" + email + "'";
-		sessionFactory.getCurrentSession().createQuery(hql);
+	public Long getTotal(String id) {
+		/*String hql = "select sum(total) from Mykart where username = " + "'" + id + "'" + "and status = '" + "N" +"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		Long sum = (Long) query.uniqueResult();
+			return sum;*/
+		return null;
 	}
-}		
+
+	@Transactional
+	public void updateshipping(String email, int sid) {
+		String hql = " update Mykart set sid = '" + sid + "' where email = '" + email + "'";
+		sessionFactory.getCurrentSession().createQuery(hql);
+	
+	}
+}
+	
+
+	
+		
 	
 	
 

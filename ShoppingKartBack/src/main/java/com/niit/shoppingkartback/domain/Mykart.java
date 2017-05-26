@@ -1,10 +1,14 @@
 package com.niit.shoppingkartback.domain;
 
+import java.util.Date;
+
+import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 import org.springframework.stereotype.Component;
 
@@ -15,23 +19,22 @@ public class Mykart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private String kartid;
+	private int kartid;
 	private String username;
-
-	private String email;
+    private String email;
 	private String status;
 	private String productname;
-	private String date;
+	private Date  date;
 	private int price;
+	private int days;
+    private String sid;
+    private int quantity;
+	private int total;
 	
-	private String sid;
-    private String quantity;
-	private String total;
-	
-	public String getKartid() {
+	public int getKartid() {
 		return kartid;
 	}
-	public void setKartid(String kartid) {
+	public void setKartid(int kartid) {
 		this.kartid = kartid;
 	}
 	
@@ -54,6 +57,8 @@ public class Mykart {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	
 	public String getSid() {
 		return sid;
 	}
@@ -66,22 +71,22 @@ public class Mykart {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getDate() {
+	public Date  getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date  date) {
 		this.date = date;
 	}
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public String getTotal() {
+	public int getTotal() {
 		return total;
 	}
-	public void setTotal(String total) {
+	public void setTotal(int total) {
 		this.total = total;
 	}
 	public String getProductname() {
@@ -89,6 +94,12 @@ public class Mykart {
 	}
 	public void setProductname(String productname) {
 		this.productname = productname;
+	}
+	public int getDays() {
+		return days;
+	}
+	public void setDays(int days) {
+		this.days = days;
 	}
 	
 	

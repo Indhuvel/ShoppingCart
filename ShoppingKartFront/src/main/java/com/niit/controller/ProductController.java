@@ -54,6 +54,9 @@ public class ProductController {
 	model.addAttribute("supplierList", supplierList);
 /*	model.addAttribute("addProductClicked", true);
 */		
+	
+	
+	
 	model.addAttribute("isAdmin", "true");
 
 		model.addAttribute("isAdminClickedProducts", "true");
@@ -99,6 +102,7 @@ public class ProductController {
 		return "redirect:/ViewProductsPage";
 		
 	}
+	
 	
 	@ModelAttribute
 	public void adminProducts(Model model){

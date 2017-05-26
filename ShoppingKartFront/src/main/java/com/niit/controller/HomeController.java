@@ -37,10 +37,13 @@ public class HomeController {
 		
 		List<Category> categoryList= categoryDAO.list();
 		
+		model.addAttribute("Carousel", "true");
 		session.setAttribute("categoryList",categoryList);
 		session.setAttribute("category", category);
 		session.setAttribute("productList",productDAO.list());
 		session.setAttribute("product", product);
+		
+		
 	
 		return mv;
 	}
@@ -49,7 +52,11 @@ public class HomeController {
 	@RequestMapping("/loginPage")
 	public String loginPage(Model model)
 	{
-		
+	@SuppressWarnings("unchecked")
+	List<Category> categoryList = (List<Category>) session.getAttribute("categoryList");
+		for (Category category : categoryList) {
+			System.out.println(category.getCategoryname());
+		}
 		model.addAttribute("isUserClickedLogin", "true");
 	
 		Long currentTime=System.currentTimeMillis();

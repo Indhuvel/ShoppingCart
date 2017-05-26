@@ -24,7 +24,8 @@
           <li><a href="ViewCategoryPage">View</a></li>
            <li><a href="CategoryPage">Add</a></li>
         </ul></li>  
-            <li style="float:right;"><a href="logout">LOGOUT</a></li>
+                    <li style="float:right;"><a href="logout">LOGOUT</a></li>
+                            
             </c:when>      	
     
 
@@ -34,6 +35,8 @@
       <li><a href="#">ABOUT</a></li>
       <li><a href="#">CONTACT US</a></li>
 <li style="float:right;"><a href="logout">LOGOUT</a></li>
+<li style="float:right;"><a href="MykartPage">MYKART</a></li>
+                    	
 </c:when>
 
 <c:otherwise>

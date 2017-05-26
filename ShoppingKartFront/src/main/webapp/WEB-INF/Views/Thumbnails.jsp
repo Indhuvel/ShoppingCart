@@ -60,3 +60,23 @@
 </div>
 </body>
 </html>
+
+
+   <div class="container">
+	<div class="row">
+        <div calss="hover-effect">
+    		<div class="col-md-4">
+              <div class="hover-div">
+                <img src="http://ecx.images-amazon.com/images/I/81T5-nIQ7hL._UY550_.jpg" class="img-responsive">
+                <a href="#">
+                    <div class="view-details">
+                         <h4>View details</h4>
+                    </div>
+                </a>
+              </div>
+    		</div>
+        </div>
+	</div>
+    
+    <!-- http://dummyimage.com/340x400/000/fff -->
+</div> 	

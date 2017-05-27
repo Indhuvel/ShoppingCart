@@ -5,7 +5,8 @@ import java.util.List;
 import com.niit.shoppingkartback.domain.Mykart;
 
 public interface MykartDAO {
-	public Mykart getByKartId(String kartid);
+	
+	public Mykart getByKartId(int kartid);
 	
 	public List<Mykart> list();
 	
@@ -17,12 +18,14 @@ public interface MykartDAO {
 	
 	public  List<Mykart> getByEmail(String email);
 
+	public Mykart getByProductId(int productId);
 	
 	public Long getTotal(String id);
 
-	public boolean itemAlreadyExist(String email, String id, boolean b);
+	public boolean itemAlreadyExist(String email, String productId, boolean b);
 
-	public Mykart getByUserandProduct(String email, String id);
+	public Mykart getByUserandProduct(String email, String productId);
+	
 	public void updateshipping(String email, int sid);
 
 }

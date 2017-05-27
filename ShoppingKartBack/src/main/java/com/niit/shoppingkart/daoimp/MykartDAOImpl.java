@@ -23,7 +23,7 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 	
 	
-	public Mykart getByKartId(String kartid) {
+	public Mykart getByKartId(int kartid) {
 		return 	(Mykart)  sessionFactory.getCurrentSession().get(Mykart.class, kartid);
 		
 		
@@ -81,7 +81,16 @@ public class MykartDAOImpl implements MykartDAO {
 		
 		return list;
 	}
+	public Mykart getByProductId(int productId) {
+		String hql = "from Mykart where productid ='" + productId + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Mykart> listMykart = (List<Mykart>) (query).list();
 
+		if (listMykart != null && !listMykart.isEmpty()) {
+			return listMykart.get(0);
+		}
+		return null;}
 
 	public Mykart getByProductname(String productname) {
 		String hql = "from Mykart where Productname ='" + productname + "'";
@@ -96,8 +105,8 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public boolean itemAlreadyExist(String email, String id, boolean b) {
-		String hql = "from Mykart where email= '" + email + "' and " + " id ='" + id+"'";
+	public boolean itemAlreadyExist(String email, String productId , boolean b) {
+		String hql = "from Mykart where email= '" + email + "' and " + " productid ='" + productId +"'";
 		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Mykart> list = (List<Mykart>) query.list();
@@ -108,8 +117,8 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public Mykart getByUserandProduct(String email, String id) {
-		String hql = "from Mykart where email= '" + email + "' and " + " id ='" + id+"'";
+	public Mykart getByUserandProduct(String email, String productId ) {
+		String hql = "from Mykart where email= '" + email + "' and " + " productid ='" + productId +"'";
 		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Mykart> listMykart = (List<Mykart>) query.list();
@@ -122,11 +131,10 @@ public class MykartDAOImpl implements MykartDAO {
 
 
 	public Long getTotal(String id) {
-		/*String hql = "select sum(total) from Mykart where username = " + "'" + id + "'" + "and status = '" + "N" +"'";
+		String hql = "select sum(total) from Mykart where email = " + "'" + id + "'" + "and status = '" + "N" +"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		Long sum = (Long) query.uniqueResult();
-			return sum;*/
-		return null;
+			return sum;
 	}
 
 	@Transactional

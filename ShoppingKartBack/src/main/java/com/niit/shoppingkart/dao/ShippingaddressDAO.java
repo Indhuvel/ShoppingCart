@@ -6,11 +6,21 @@ import com.niit.shoppingkartback.domain.Shippingaddress;
 
 
 public interface ShippingaddressDAO {
-	public List<Shippingaddress> list(String id);
+	public List<Shippingaddress> list();
+	
+	public List<Shippingaddress> list(String email);
+	
+	public Shippingaddress getByShippingAddress(String address);
 
-	public Shippingaddress get(String uname);
 
-	public void saveOrUpdate(Shippingaddress shippingaddress);
+	public Shippingaddress getByUserName(String username);
+
+	public void saveOrUpdate(Shippingaddress address);
 
 	public void delete(String sid);
+	
+	public Shippingaddress getBySid(String sid);
+
+	
+
 }

@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 @Table(name="Mykart")
 public class Mykart {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
+	@GeneratedValue	
 	private int kartid;
 	private String username;
     private String email;
 	private String status;
 	private String productname;
+	private String productid;
 	private Date  date;
 	private int price;
 	private int days;
@@ -38,6 +38,12 @@ public class Mykart {
 		this.kartid = kartid;
 	}
 	
+	public String getProductid() {
+		return productid;
+	}
+	public void setProductid(String productid) {
+		this.productid = productid;
+	}
 	public String getEmail() {
 		return email;
 	}

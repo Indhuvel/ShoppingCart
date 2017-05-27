@@ -50,17 +50,20 @@ public class HomeController {
 	
 	
 	@RequestMapping("/loginPage")
-	public String loginPage(Model model)
+	public String loginPage(@RequestParam(value = "error", required = false) String error, 
+			@RequestParam(value = "logout", required = false) String logout,Model model)
 	{
-	@SuppressWarnings("unchecked")
-	List<Category> categoryList = (List<Category>) session.getAttribute("categoryList");
-		for (Category category : categoryList) {
-			System.out.println(category.getCategoryname());
-		}
+	
+		if(error != null) {
+			model.addAttribute("error", "Username or Password Incorrect");
+			}
+		
+		if(logout != null) {
+			model.addAttribute("logout", "Logged out Successfully");
+			}
 		model.addAttribute("isUserClickedLogin", "true");
 	
-		Long currentTime=System.currentTimeMillis();
-		Date currentDate=new Date(currentTime);
+		
 		return "Home";
 	}
 	

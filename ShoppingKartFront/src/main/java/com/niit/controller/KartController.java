@@ -22,88 +22,113 @@ import com.niit.shoppingkartback.domain.User;
 public class KartController {
 	@Autowired
 	private MykartDAO mykartDAO;
-	
+
 	@Autowired
 	private ProductDAO productDAO;
-	
-	
-@Autowired
+
+	@Autowired
 	private UserDAO userDAO;
-	
+
 	@Autowired
 	private Mykart mykart;
-	
+
 	@RequestMapping("/MykartPage")
 	public String MykartPage(Principal principal, Model model) {
-		String email = principal.getName();
-		User user = userDAO.getByMailId(email);
-		List<Mykart> mykartList = mykartDAO.getByEmail(email);
-		Long GrandTotal =mykartDAO.getTotal(user.getId()); 
 		
-		model.addAttribute("GrandTotal ",GrandTotal );
+		List<Mykart> mykartList = mykartDAO.getByEmail(principal.getName());
+		Long GrandTotal = mykartDAO.getTotal(principal.getName());
+
+		model.addAttribute("GrandTotal ", GrandTotal);
 		model.addAttribute("mykartList", mykartList);
 		model.addAttribute("isUserClickerdAddtoKart", true);
 		return "userLogin";
-	  
-	
-	}
-	
-	@RequestMapping("productDetails")
-	public String productDetails(@RequestParam("id") String id,Model model)
-	{		
 
-		Product product=productDAO.getById(id);
+	}
+
+	@RequestMapping("productDetails")
+	public String productDetails(@RequestParam("id") String id, Model model) {
+
+		Product product = productDAO.getById(id);
 		model.addAttribute("productDetails", true);
 		model.addAttribute("product", product);
-		
-		//model.addAttribute("isUser", "true");
+
+		// model.addAttribute("isUser", "true");
 
 		return "Home";
 	}
-	
-	
+
 	@RequestMapping("addtokart")
-	public String addtokart(@RequestParam("productId") String productId, Principal p, Model model){
-		
-		Product product = productDAO.getById(productId);		
+	public String addtokart(@RequestParam("productId") String productId, Principal p, Model model) {
+
+		Product product = productDAO.getById(productId);
 		String email = p.getName();
-		User user = userDAO.getByMailId(email);;	
-		List<Mykart> mykartList = mykartDAO.getByEmail(email);
-		model.addAttribute("mykartList", mykartList);
+		User user = userDAO.getByMailId(email);
 
-		Mykart mykart = mykartDAO.getByUserandProduct(p.getName(), productId);
-if(product.getStock() > 0 ){
-			
-			if(mykartDAO.itemAlreadyExist(p.getName(), productId, true)){
-				int quantity = mykart.getQuantity() + 1;
-				mykart.setQuantity(quantity);
-				mykart.setTotal(product.getPrice() * quantity);
-				mykartDAO.saveOrUpdate(mykart);
+		Mykart mykrt = mykartDAO.getByUserandProduct(p.getName(), productId);
+/*System.out.println(mykrt.getQuantity());*/
+		if (product.getStock() > 0) {
+
+			if (mykartDAO.itemAlreadyExist(p.getName(), productId, true)) {
+				
+				int qty = mykrt.getQuantity() + 1;
+				mykrt.setQuantity(qty);
+				mykrt.setTotal(product.getPrice() * qty);
+				boolean flag = mykartDAO.saveOrUpdate(mykrt);
+				System.out.println(flag);
+				System.out.println(qty);
+			} else {
+				Random t = new Random();
+				int day = 2 + t.nextInt(7);
+				
+				mykart.setEmail(p.getName());
+				mykart.setPrice(product.getPrice());
+				mykart.setProductname(product.getProductname());
+				mykart.setProductid(product.getId());
+				mykart.setQuantity(1);
+				mykart.setStatus("N");
+				mykart.setUsername(user.getUsername());
+				mykart.setTotal(product.getPrice() * mykart.getQuantity());
+				mykart.setDays(day);
+				Long currentTime = System.currentTimeMillis();
+				Date currentDate = new Date(currentTime);
+				mykart.setDate(currentDate);
+
+				boolean flag = mykartDAO.saveOrUpdate(mykart);
+				System.out.println(flag);
+
 			}
-			
-		mykart.setEmail(p.getName());
-		mykart.setPrice(product.getPrice());
-		mykart.setProductname(product.getProductname());
-		mykart.setQuantity(1);
-		mykart.setStatus("N");
-		mykart.setUsername(user.getUsername());
-		mykart.setTotal(product.getPrice()*mykart.getQuantity());
-        mykart.setDays(1);
-		Long currentTime=System.currentTimeMillis();
-		Date currentDate=new Date(currentTime);
-		mykart.setDate(currentDate);
+			int stc = product.getStock() - 1;
+			product.setStock(stc);
 
-		mykartDAO.saveOrUpdate(mykart);}
+			productDAO.saveOrUpdate(product);
+			return "redirect:MykartPage";
+		}
+		else {
+			model.addAttribute("product", product);
+
+			model.addAttribute("productDetails", true);
 		
-		model.addAttribute("isUserClickerdViewDetails", true);
-		model.addAttribute("isUserClickerdAddtoKart", true);
-
-		return "userLogin";
+			model.addAttribute("message", "Out of stock");
+			return "userLogin";
+		}
 	}
+
 	@RequestMapping("removekart")
-		public String removekart(@RequestParam("kartid")int kartid,Model model){
-	mykartDAO.delete(kartid);
-	return "redirect:MykartPage";
+	public String removekart(@RequestParam("kartid") int kartid, Model model) {
+		
+		Mykart mykart = mykartDAO.getByKartId(kartid);
+		Product product = productDAO.getById(mykart.getProductid());
+		
+		int qty = product.getStock() + mykart.getQuantity();
+		
+		product.setStock(qty);
+		productDAO.saveOrUpdate(product);
+		
+		mykartDAO.delete(kartid);
+		return "redirect:MykartPage";
 	}
-
+	@ModelAttribute
+	public void commonToUser(Model model){
+		model.addAttribute("isUser", "true");
+	}
 }

@@ -275,7 +275,61 @@ function formsignup() {
 		}
 	}
 						
-						
+	//shippingaddress form
+	function formAddress() {
+	// Make quick references to our fields
+	
+	var username = document.getElementById('username');
+	var contact = document.getElementById('contact');
+	var address = document.getElementById('address');
+	var zipcode = document.getElementById('zipcode');
+	// Check each input in the order that it appears in the form!
+		if (notEmpty(username, "Username Should not be empty")) {
+		if (isAlphabet(username,"Please enter only letters for Username")) {
+		if (notEmpty(contact,"Contact Number Should not be empty")) {
+		if (isNumeric(contact,"Please enter only number for Contact Number")) {
+	    if (notEmpty(address,"Address Should not be empty")) {
+	    if (notEmpty(zipcode,"Zipcode Should not be empty")) {
+		if (isNumeric(zipcode,"Please enter a valid zip code")) {
+									return true;
+														}
+													}
+												}
+											}
+										}
+									}
+		
+}
+	return false;
+}
+function notEmpty(elem, helperMsg) {
+	if (elem.value.length == 0) {
+		alert(helperMsg);
+		elem.focus(); // set the focus to this input
+		return false;
+	}
+	return true;
+}
+function isNumeric(elem, helperMsg) {
+	var numericExpression = /^[0-9]+$/;
+	if (elem.value.match(numericExpression)) {
+		return true;
+	} else {
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+function isAlphabet(elem, helperMsg) {
+	var alphaExp = /^[a-z A-Z]+$/;
+	if (elem.value.match(alphaExp)) {
+		return true;
+	} else {
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
 </script>
 
 <style>

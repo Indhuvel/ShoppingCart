@@ -24,7 +24,11 @@
 						<button type="button" class="btn btn-success">
 							Add to Cart 
 						</button>
-						</div></a></p></c:if>
+						</div></a></p>
+						
+						</c:if>
+						
+						<h3 style="color: red;">${message }</h3>
 						<c:if test="${pageContext.request.userPrincipal.name != null }">
                  <p><a href="addtokart?productId=${product.id}">
              <div class="btn-group cart">

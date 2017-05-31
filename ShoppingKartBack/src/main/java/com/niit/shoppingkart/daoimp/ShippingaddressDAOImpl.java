@@ -2,9 +2,11 @@ package com.niit.shoppingkart.daoimp;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.shoppingkart.dao.ShippingaddressDAO;
 import com.niit.shoppingkartback.domain.Shippingaddress;
 
+@Transactional
 @Repository("ShippingaddressDAO")
 public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	@Autowired
@@ -20,61 +23,59 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 	public ShippingaddressDAOImpl (SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
-
+	private Session getCurrentSession()
+	{
+		return sessionFactory.getCurrentSession();
+	}
+	
 	@SuppressWarnings("unchecked")
-	public List<Shippingaddress> list(String email) {
+	public List<Shippingaddress> list() {
 		return sessionFactory.getCurrentSession().createQuery("from Shippingaddress").list();
 
 	}
-
-	public void saveOrUpdate(Shippingaddress address) {
-		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().save(address);
-
+	public List<Shippingaddress> list(String email) {
+		String hql = "from Shippingaddress where email='" + email + "'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Shippingaddress> list = (List<Shippingaddress>) query.list();
+		
+		return list;
 	}
+	public Shippingaddress getByShippingAddress(String address) {
+		String hql = "from Shippingaddress where address ='" + address + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) (query).list();
 
+		if (listShippingaddress != null && !listShippingaddress.isEmpty()) {
+			return listShippingaddress.get(0);
+		}
+		return null;
+	}
+	public Shippingaddress getByUserName(String username) {
+		String hql = "from Shippingaddress where username='" + username + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) (query).list();
 
-
-
-	public void delete(String sid) {
+		if (listShippingaddress != null && !listShippingaddress.isEmpty()) {
+			return listShippingaddress.get(0);
+		}
+		return null;
+	}
+	public void saveOrUpdate(Shippingaddress address) {
+		sessionFactory.getCurrentSession().saveOrUpdate(address);
+		
+	}
+	public void delete(int sid) {
 		Shippingaddress shippingaddressToDelete = new Shippingaddress();
 		shippingaddressToDelete.setSid(sid);
 		sessionFactory.getCurrentSession().delete(shippingaddressToDelete);
 
+		
 	}
-
-	public List<Shippingaddress> list() {
-		@SuppressWarnings({ "unchecked" })
-		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) sessionFactory.getCurrentSession().createCriteria(Shippingaddress.class)
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		return listShippingaddress;
-	}
-
-	public Shippingaddress getByShippingAddress(String address) {
-		String hql = "from Shippingaddress where ShippingAddress ='" + address + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) (query).list();
-
-		if (listShippingaddress != null && !listShippingaddress.isEmpty()) {
-			return listShippingaddress.get(0);
-		}
-		return null;
-	}
-
-	public Shippingaddress getByUserName(String username) {
-		String hql = "from Shippingaddress where UserName='" + username + "'";
-		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
-		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) (query).list();
-
-		if (listShippingaddress != null && !listShippingaddress.isEmpty()) {
-			return listShippingaddress.get(0);
-		}
-		return null;
-	}
-
-	public Shippingaddress getBySid(String sid) {
+	public Shippingaddress getBySid(int sid) {
 		String hql = "from Shippingaddress where ShippingId='" + sid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
@@ -83,8 +84,9 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 		if (listShippingaddress != null && !listShippingaddress.isEmpty()) {
 			return listShippingaddress.get(0);
 		}
-		return null;
+		return null;	
 	}
+	
 
 	
 }

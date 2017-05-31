@@ -17,9 +17,9 @@ public interface ShippingaddressDAO {
 
 	public void saveOrUpdate(Shippingaddress address);
 
-	public void delete(String sid);
+	public void delete(int sid);
 	
-	public Shippingaddress getBySid(String sid);
+	public Shippingaddress getBySid(int sid);
 
 	
 

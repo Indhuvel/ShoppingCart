@@ -13,16 +13,17 @@ import org.springframework.stereotype.Component;
 public class Shippingaddress {
 	    @Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
-	    private String sid;
+	    private int sid;
 	    private String username;
 		private String email;
 		private String contact;
 		private String address;
 		private int citycode;
-		public String getSid() {
+		
+		public int getSid() {
 			return sid;
 		}
-		public void setSid(String sid) {
+		public void setSid(int sid) {
 			this.sid = sid;
 		}
 		

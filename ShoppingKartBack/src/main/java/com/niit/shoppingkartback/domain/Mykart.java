@@ -27,7 +27,7 @@ public class Mykart {
 	private Date  date;
 	private int price;
 	private int days;
-    private String sid;
+    private int sid;
     private int quantity;
 	private int total;
 	
@@ -65,10 +65,10 @@ public class Mykart {
 	}
 	
 	
-	public String getSid() {
+	public int getSid() {
 		return sid;
 	}
-	public void setSid(String sid) {
+	public void setSid(int sid) {
 		this.sid = sid;
 	}
 	public int getPrice() {

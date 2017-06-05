@@ -18,7 +18,7 @@ public class Shippingaddress {
 		private String email;
 		private String contact;
 		private String address;
-		private int citycode;
+		private int zipcode;
 		
 		public int getSid() {
 			return sid;
@@ -52,11 +52,12 @@ public class Shippingaddress {
 		public void setAddress(String address) {
 			this.address = address;
 		}
-		public int getCitycode() {
-			return citycode;
+		public int getZipcode() {
+			return zipcode;
 		}
-		public void setCitycode(int citycode) {
-			this.citycode = citycode;
+		public void setZipcode(int zipcode) {
+			this.zipcode = zipcode;
 		}
+		
 
 }

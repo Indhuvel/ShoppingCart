@@ -19,7 +19,7 @@ public class Billingaddress {
 	private String email;
     private String contact;
 	private String address;
-	private int citycode;
+	private int zipcode;
 	public String getBid() {
 		return bid;
 	}
@@ -52,10 +52,10 @@ public class Billingaddress {
 		this.address = address;
 	}
 	public int getCitycode() {
-		return citycode;
+		return zipcode;
 	}
-	public void setCitycode(int citycode) {
-		this.citycode = citycode;
+	public void setCitycode(int zipcode) {
+		this.zipcode = zipcode;
 	}
 	
 	}

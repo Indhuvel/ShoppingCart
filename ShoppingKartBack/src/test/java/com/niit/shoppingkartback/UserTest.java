@@ -48,6 +48,7 @@ public class UserTest {
 		user.setPassword("priya");
 		user.setAddress("xyz");
 	    user.setEmail("abc@gmail.com");	
+	    user.setZipcode(687678);
 		
 	    category.setCategoryname("mobile");
 		category.setCategorydescription("world's best choice");
@@ -70,7 +71,7 @@ public class UserTest {
 		shippingaddress.setEmail("jenu@gmail.com");
 		shippingaddress.setContact("9012679872");
 		shippingaddress.setAddress("mumbai");
-		shippingaddress.setCitycode(972297);
+		shippingaddress.setZipcode(576878);
 		
 		
         billingaddress.setEmail("mm@gmail.com");

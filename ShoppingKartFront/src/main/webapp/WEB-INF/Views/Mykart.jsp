@@ -40,7 +40,7 @@
 		</table>
 		
 		<p>
-			<a  href="proceed" class="btn btn-info" href="proceed">Proceed</a>
+			<a   class="btn btn-info" href="proceed">Proceed</a>
 			 
                    
 		</p>

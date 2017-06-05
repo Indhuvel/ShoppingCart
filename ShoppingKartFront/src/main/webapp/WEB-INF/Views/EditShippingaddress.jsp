@@ -1,34 +1,39 @@
-
 <div class="container">
-  <form action="addShippingaddress" method="post" onsubmit="return formAddress()" class="form-horizontal">
+  <form action="editshippingAddress" method="post" class="form-horizontal">
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Shipping Id:</label>
+      <div class="col-sm-10">          
+        <input type="text" name="sid" class="form-control" id="sid" value="${shipping.sid }" readonly="true" >
+      </div>
+    </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="UserName"> User Name:</label>
       <div class="col-sm-10">
-        <input type="text" name="username" class="form-control" id="username" placeholder="Enter User Name">
+        <input type="text" name="username" class="form-control" id="username" value="${shipping.username }">
       </div>
-    </div>
-    <div class="form-group">
+      <%-- <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">          
-        <input type="text" name="email" class="form-control" id="email" placeholder="Enter Your Email">
+        <input type="text" name="email" class="form-control" id="email" value="${shipping.email }">
       </div>
     </div>
+    </div> --%>
      <div class="form-group">
       <label class="control-label col-sm-2" for="contactNumber">Contact Number:</label>
       <div class="col-sm-10">
-        <input type="text" name="contact" class="form-control" id="contact" placeholder="Enter Contact Number">
+        <input type="text" name="contact" class="form-control" id="contact" value="${shipping.contact }">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Shipping Address:</label>
       <div class="col-sm-10">          
-        <input type="text" name="address" class="form-control" id="address" placeholder="Enter Shipping Address">
+        <input type="text" name="address" class="form-control" id="address" value="${shipping.address }">
       </div>
     </div>
      <div class="form-group">
       <label class="control-label col-sm-2" for="zipcode"> Zipcode:</label>
       <div class="col-sm-10">
-        <input type="text" name="zipcode" class="form-control" id="zipcode" placeholder="Enter Zipcode ">
+        <input type="text" name="zipcode" class="form-control" id="zipcode"value="${shipping.citycode }">
       </div>
     </div>
     <div class="form-group">        

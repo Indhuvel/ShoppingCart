@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.niit.shoppingkart.dao.ProductDAO;
 import com.niit.shoppingkart.dao.RoleDAO;
+import com.niit.shoppingkart.dao.ShippingaddressDAO;
 import com.niit.shoppingkart.dao.UserDAO;
+import com.niit.shoppingkart.dao.BillingaddressDAO;
+import com.niit.shoppingkartback.domain.Billingaddress;
 import com.niit.shoppingkartback.domain.Product;
 import com.niit.shoppingkartback.domain.Role;
+import com.niit.shoppingkartback.domain.Shippingaddress;
 import com.niit.shoppingkartback.domain.User;
 
 @Controller
@@ -32,8 +36,14 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
+	@Autowired 
+	private ShippingaddressDAO shippingaddressDAO;
+	@Autowired 
+	private BillingaddressDAO billingaddressDAO;;
+
+	
 	@RequestMapping("newUser")
-	public String newUser(@ModelAttribute User user, Model model){
+	public String newUser(@ModelAttribute User user,@ModelAttribute Shippingaddress shippingaddress, @ModelAttribute Billingaddress billingaddress, Model model){
 		
 		role.setRole("ROLE_USER");
 		role.setUsername(user.getUsername());
@@ -48,6 +58,12 @@ public class UserController {
 		userDAO.saveOrUpdate(user);
 		roleDAO.saveOrUpdate(role);
 		
+		shippingaddress.setEmail(user.getEmail());
+		shippingaddressDAO.saveOrUpdate(shippingaddress);
+		
+		billingaddress.setEmail(user.getEmail());
+	  billingaddressDAO.saveOrUpdate(billingaddress);
+	
 		
 		model.addAttribute("isUserClickedLogin", "true");
 		return "Home";

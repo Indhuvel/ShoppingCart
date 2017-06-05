@@ -52,12 +52,6 @@ public class ProductController {
 	List<Supplier> supplierList = supplierDAO.list();
 	model.addAttribute("categoryList", categoryList);
 	model.addAttribute("supplierList", supplierList);
-/*	model.addAttribute("addProductClicked", true);
-*/		
-	
-	
-	
-	model.addAttribute("isAdmin", "true");
 
 		model.addAttribute("isAdminClickedProducts", "true");
 		return "adminLogin";
@@ -70,9 +64,6 @@ public class ProductController {
 		List<Product> productList = productDAO.list();
 		model.addAttribute("productList", productList);
 		
-		
-		model.addAttribute("isAdmin", "true");
-
 		model.addAttribute("isAdminClickedViewProducts", "true");
 		return "adminLogin";
 	}

@@ -1,14 +1,16 @@
+
+<div style="margin-right:30%" align="center">
 <h2>Edit Category</h2>
 <fieldset>
-<legend> category</legend>
+<!-- <legend> category</legend> -->
 <form action="afterEditcategory" method="post">
-categoryid:<br>
+CategoryId:<br>
   <input type="text" name="id" value="${category.id}" readonly="true"><br>
 
-  categoryname:<br>
+  Category Name:<br>
   <input type="text" name="categoryname" value="${category.categoryname}"><br>
-  categorydetails:<br>
-  <input type="text" name="categorydescription" value="${category.categorydescription}">
+  Category Details:<br>
+  <input type="text" name="categorydescription" value="${category.categorydescription}"><br>
   <input type="submit" name="submit">
 </form>
-</fieldset>
+</fieldset></div>

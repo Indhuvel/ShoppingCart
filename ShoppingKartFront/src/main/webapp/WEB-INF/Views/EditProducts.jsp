@@ -1,12 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<div style="margin-right:70%" align="center">
+
 <h2>Edit Products</h2>
 <fieldset>
-<legend>Product</legend>
-  <form action="afterEditproducts" method="post">
-  product id:<input class="form-control" type="text" name="id" value="${product.id}" readonly="true"><br>
+<!-- <legend>Product</legend>
+ -->  <form action="afterEditproducts" method="post">
+  Product Id:<input class="form-control" type="text" name="id" value="${product.id}" readonly="true"><br>
   
-  product Name:
+  Product Name:
   <input class="form-control" type="text" name="productname" value="${product.productname}"><br>
   Product Description:
   <input class="form-control" type="text" name="description" value="${product.description}"><br>
@@ -30,4 +32,4 @@ stock:
 <input class="form-control" type="text" name="Stock" value="${product.stock}"><br>
 <input type="submit" name="submit">
 </form>
-</fieldset>
+</fieldset></div>

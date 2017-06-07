@@ -36,9 +36,9 @@ public class KartController {
 	public String MykartPage(Principal principal, Model model) {
 		
 		List<Mykart> mykartList = mykartDAO.getByEmail(principal.getName());
-		Long GrandTotal = mykartDAO.getTotal(principal.getName());
+ 		Long GrandTotal = mykartDAO.getTotal(principal.getName());
 
-		model.addAttribute("GrandTotal ", GrandTotal);
+		model.addAttribute("GrandTotal", GrandTotal);
 		model.addAttribute("mykartList", mykartList);
 		model.addAttribute("isUserClickerdAddtoKart", true);
 		return "userLogin";

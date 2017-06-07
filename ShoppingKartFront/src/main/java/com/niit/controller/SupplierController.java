@@ -32,11 +32,11 @@ public class SupplierController {
 	@RequestMapping("/SupplierPage")
 	public String supplierPage(Model model)
 	{
-		@SuppressWarnings("unchecked")
+		/*@SuppressWarnings("unchecked")
 		List<Category> categoryList = (List<Category>) session.getAttribute("categoryList");
 		for (Category category : categoryList) {
 			System.out.println(category.getCategoryname());
-		}
+		}*/
 		model.addAttribute("isAdmin", "true");
 		model.addAttribute("isAdminClickedSupplier", "true");
 		return "adminLogin";

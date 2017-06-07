@@ -33,7 +33,7 @@
 			</c:forEach>
 			<tr>
 				<td colspan="5">Grand Total :</td>
-				<td colspan="2">${GrandTotal }</td>
+				<td colspan="2"><c:out value="${GrandTotal}"></c:out></td>
 				<td></td>
 			</tr>
 			

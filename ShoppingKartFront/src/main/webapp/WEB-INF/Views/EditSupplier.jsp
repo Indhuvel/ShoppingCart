@@ -1,18 +1,21 @@
+
+<div style="margin-right:30%" align="center">
 <h2>Edit Supplier</h2>
 <fieldset>
-<legend> supplier</legend>
+<!-- <legend> supplier</legend> -->
 <form action="aftereditsupplier" action="post">
 
-  id:<br> <input type="text" name="id"value="${supplier.id}" readonly="true"><br>
-  name:<br> <input type="text" name="suppliername" value="${supplier.suppliername}"><br>
-  description:<br> <input type="text" name="supplierdescription" value="${supplier.supplierdescription}"><br>
+  SupplierId:<br> <input type="text" name="id"value="${supplier.id}" readonly="true"><br>
+  Supplier Name:<br> <input type="text" name="suppliername" value="${supplier.suppliername}"><br>
+  Description:<br> <input type="text" name="supplierdescription" value="${supplier.supplierdescription}"><br>
   
-  address:<br> <input type="text" name="address" value="${supplier.address}"><br>
-  email:<br> <input type="text" name="email"  value="${supplier.email}"><br>
-  contact:<br> <input type="text" name="contact" value="${supplier.contact}"><br>
+  Address:<br> <input type="text" name="address" value="${supplier.address}"><br>
+  Email:<br> <input type="text" name="email"  value="${supplier.email}"><br>
+  Contact:<br> <input type="text" name="contact" value="${supplier.contact}"><br>
   
-   citycode:<br><input type="text" name="citycode"  value="${supplier.citycode}"><br>
+   Citycode:<br><input type="text" name="citycode"  value="${supplier.citycode}"><br>
  
   <input type="submit" name="submit">
 </form>
 </fieldset>
+</div>

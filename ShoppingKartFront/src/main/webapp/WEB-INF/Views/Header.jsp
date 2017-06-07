@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="resources/css/Search.css">
 <link rel="stylesheet" type="text/css" href="resources/css/Navbar.css">
+<link rel="stylesheet" type="text/css" href="resources/css/Pay.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -279,16 +280,13 @@ function formsignup() {
 	// Make quick references to our fields
 	
 	var username = document.getElementById('username');
-	var email = document.getElementById('email');
 	var contact = document.getElementById('contact');
 	var address = document.getElementById('address');
 	var zipcode = document.getElementById('zipcode');
 	// Check each input in the order that it appears in the form!
 		if (notEmpty(username, "Username Should not be empty")) {
 		if (isAlphabet(username,"Please enter only letters for Username")) {
-			if (notEmpty(email,"EmailId Should not be empty")) {
-				if (emailValidator(email,"EmailId Should be in format of abc@xyz.com ")) {
-		if (notEmpty(contact,"Contact Number Should not be empty")) {
+				if (notEmpty(contact,"Contact Number Should not be empty")) {
 		if (isNumeric(contact,"Please enter only number for Contact Number")) {
 	    if (notEmpty(address,"Address Should not be empty")) {
 	    if (notEmpty(zipcode,"Zipcode Should not be empty")) {
@@ -300,7 +298,6 @@ function formsignup() {
 											}
 										}
 									}
-			}}
 }
 	return false;
 }
@@ -471,70 +468,7 @@ li:hover a {
     font-size: 16px;}
 .new-deal .item-slide:hover .box-img .text-wrap{bottom:-100%;} 
 
-//shippingaddress
 
-.wrap1{
-  background-color: #ffffff;
-  
-  -moz-box-shadow: 0px 0px 25px #000000;
-  -webkit-box-shadow: 0px 0px 25px #000000;
-  box-shadow: 0px 0px 25px #000000;
-  
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  
-  margin: 0px auto;
-  padding: 30px 20px;
-  overflow: auto;
-  width: 640px;
-}
-
-.shipping{
-  float: left;
-  text-align: center;
-  width: 300px;
-}
-h2{
-  color: #0082C5;
-  margin: 0px 0px 0px 15px;
-  padding: 0px;
-  float: left;
-}
-
-input{
-  background-color: #f2f2f2;
-  border: 1px solid #c8c8c8;
-  font-family: 'Oxygen', sans-serif;
-  
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  
-  margin: 0px 0px 10px 0px;
-  padding: 8px;
-  width: 90%;
-}
-.checkBox{
-  clear: left;
-  float: left;
-  height: 13px;
-  margin: 13px 0px 0px 15px;
-  width: 13px;
-}
-.checkBoxText{
-  float: left;
-  margin: 10px 0px 10px 15px;
-  padding: 0px;
-}
 </style>
 </head>
 <body background="resources/images/">

@@ -67,16 +67,14 @@ public class ShippingaddressController {
 	public String shippingAddress(@RequestParam("shippingId") int shippingId, Principal p, Model model){
 		
 		String email = p.getName();
-		
-		model.addAttribute("thankyouPage", true);
-		
 		List<Mykart> mykartList = mykartDAO.getByEmail(email);
 		
 		for(Mykart c : mykartList){
 			c.setSid(shippingId);
 			mykartDAO.saveOrUpdate(c);
 		}
-		
+		model.addAttribute("deliverhereClicked", true);
+		model.addAttribute("thankyouPage", true);
 		return "userLogin";
 		
 	}
@@ -107,6 +105,11 @@ public class ShippingaddressController {
 		return "redirect:proceed";
 	}
 	
+	@RequestMapping("ThankyouPage")
+	public String ThankyouPage( Model model){
+		model.addAttribute("checkoutClicked", true);
+		return "userLogin";
+	}
 	@ModelAttribute
 	public void commonToUser(Model model){
 		model.addAttribute("isUser", "true");

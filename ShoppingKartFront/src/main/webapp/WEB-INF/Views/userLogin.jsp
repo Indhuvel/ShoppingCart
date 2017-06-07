@@ -20,8 +20,11 @@
  <c:when test="${ not empty editShippingAddressClicked}">    
   <%@include file="/WEB-INF/Views/EditShippingaddress.jsp"%>
      </c:when>
-      <%-- <c:when test="${ not empty thankyouPage}">    
-     <%@include file="/WEB-INF/Views/thankyouPage.jsp" %>
-     </c:when> --%>
+      <c:when test="${ not empty deliverhereClicked}">    
+     <%@include file= "/WEB-INF/Views/Payment.jsp"%>
+     </c:when>
+     <c:when test="${ not empty checkoutClicked}">    
+     <%@include file= "/WEB-INF/Views/Thankyou.jsp"%>
+     </c:when>
 <c:otherwise> <%@include file="/WEB-INF/Views/ProductList.jsp" %></c:otherwise>
 </c:choose>

@@ -44,14 +44,14 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="contact">Contact</label>  
   <div class="col-md-6">
-  <input id="contact" name="contact" type="text"  class="form-control input-md" />
+  <input id="contact" name="contact" type="text" placeholder="Contact" class="form-control input-md" />
     
   </div>
 </div>
 <div class="form-group">
   <label class="col-md-4 control-label" for="code">Zipcode</label>  
   <div class="col-md-6">
-  <input id="zipcode" name="citycode" type="text"  class="form-control input-md" />
+  <input id="zipcode" name="citycode" type="text" placeholder="Citycode" class="form-control input-md" />
     
   </div>
 </div>

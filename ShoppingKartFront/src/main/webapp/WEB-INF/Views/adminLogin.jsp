@@ -1,5 +1,6 @@
 
-<h2>Welcome Admin!!!!!!!!!!!!!!!!!!!!!!!!</h2>
+<h2><font color="#0066ff">Welcome ${pageContext.request.userPrincipal.name}</font><br><br></h2>
+
 <%@include file="/WEB-INF/Views/Menu.jsp" %>
 <%@include file="/WEB-INF/Views/Header.jsp" %>
 

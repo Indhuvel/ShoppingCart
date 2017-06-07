@@ -2,14 +2,10 @@ package com.niit.shoppingkartback.domain;
 
 import java.util.Date;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-
 import org.springframework.stereotype.Component;
 
 @Entity 
@@ -19,6 +15,8 @@ public class Mykart {
 	@Id
 	@GeneratedValue	
 	private int kartid;
+	
+
 	private String username;
     private String email;
 	private String status;

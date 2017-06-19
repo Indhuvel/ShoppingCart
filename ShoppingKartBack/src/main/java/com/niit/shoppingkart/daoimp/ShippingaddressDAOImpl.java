@@ -76,7 +76,7 @@ public class ShippingaddressDAOImpl implements ShippingaddressDAO {
 		
 	}
 	public Shippingaddress getBySid(int sid) {
-		String hql = "from Shippingaddress where ShippingId='" + sid + "'";
+		String hql = "from Shippingaddress where sid='" + sid + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<Shippingaddress> listShippingaddress = (List<Shippingaddress>) (query).list();

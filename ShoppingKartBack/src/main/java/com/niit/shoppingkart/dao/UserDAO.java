@@ -18,6 +18,7 @@ public interface UserDAO {
 
 	public void delete(String id);
 
+	public boolean isAllReadyRegister(String email, boolean b);
 
 
 }

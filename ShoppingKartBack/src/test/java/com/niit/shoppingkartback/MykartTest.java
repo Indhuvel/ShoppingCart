@@ -45,7 +45,7 @@ public class MykartTest {
 /*		mykart.setDate(2013-05-06);
 */		mykart.setTotal(65);
 
-		boolean flag =  mykartDAO.saveOrUpdate(mykart);
+		boolean flag =  mykartDAO.update(mykart);
 		System.out.println(flag);
 	}
 }

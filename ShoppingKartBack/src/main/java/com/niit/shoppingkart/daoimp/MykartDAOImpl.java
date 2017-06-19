@@ -61,10 +61,21 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public boolean saveOrUpdate(Mykart mykart) {
+	public boolean save(Mykart mykart) {
 		try
 		{
-		sessionFactory.getCurrentSession().saveOrUpdate(mykart);
+		sessionFactory.getCurrentSession().save(mykart);
+		}catch (Exception e) {
+						e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean update(Mykart mykart) {
+		try
+		{
+		sessionFactory.getCurrentSession().update(mykart);
 		}catch (Exception e) {
 						e.printStackTrace();
 			return false;
@@ -105,7 +116,7 @@ public class MykartDAOImpl implements MykartDAO {
 	}
 
 
-	public boolean itemAlreadyExist(String email, String productId , boolean b) {
+	public boolean itemAlreadyExist(String email, String productId) {
 		String hql = "from Mykart where email= '" + email + "' and " + " productid ='" + productId +"'";
 		org.hibernate.Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
@@ -143,6 +154,13 @@ public class MykartDAOImpl implements MykartDAO {
 		sessionFactory.getCurrentSession().createQuery(hql);
 	
 	}
+	@Transactional
+	public List<Mykart> listCartByStatus(String email, char status) {
+		return sessionFactory.getCurrentSession()
+				.createQuery("from Mykart where email=" + "'" + email + "' " + "  and status = " + "'" + status + "'")
+				.list();
+	}
+
 }
 	
 

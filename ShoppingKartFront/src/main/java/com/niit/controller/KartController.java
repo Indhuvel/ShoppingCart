@@ -37,10 +37,20 @@ public class KartController {
 		
 		List<Mykart> mykartList = mykartDAO.getByEmail(principal.getName());
  		Long GrandTotal = mykartDAO.getTotal(principal.getName());
-
+        String email= principal.getName();
 		model.addAttribute("GrandTotal", GrandTotal);
-		model.addAttribute("mykartList", mykartList);
+		model.addAttribute("mykartList", mykartDAO.listCartByStatus(email, 'N'));
 		model.addAttribute("isUserClickerdAddtoKart", true);
+		
+		if(mykartDAO.listCartByStatus(email, 'N').isEmpty()) {
+			model.addAttribute("isMykartEmpty",true);
+			
+		}
+		else {
+
+			model.addAttribute("isMykartEmpty",false);
+
+		}
 		return "userLogin";
 
 	}
@@ -68,13 +78,13 @@ public class KartController {
 /*System.out.println(mykrt.getQuantity());*/
 		if (product.getStock() > 0) {
 
-			if (mykartDAO.itemAlreadyExist(p.getName(), productId, true)) {
+			if (mykartDAO.itemAlreadyExist(p.getName(), productId)==true) {
 				
 				int qty = mykrt.getQuantity() + 1;
 				mykrt.setQuantity(qty);
 				mykrt.setTotal(product.getPrice() * qty);
-				boolean flag = mykartDAO.saveOrUpdate(mykrt);
-				System.out.println(flag);
+				boolean flag = mykartDAO.update(mykrt);
+				System.out.println(flag+"duplicate");
 				System.out.println(qty);
 			} else {
 				Random t = new Random();
@@ -93,8 +103,8 @@ public class KartController {
 				Date currentDate = new Date(currentTime);
 				mykart.setDate(currentDate);
 
-				boolean flag = mykartDAO.saveOrUpdate(mykart);
-				System.out.println(flag);
+				boolean flag = mykartDAO.save(mykart);
+				System.out.println(flag+"new product");
 
 			}
 			int stc = product.getStock() - 1;
@@ -127,8 +137,19 @@ public class KartController {
 		mykartDAO.delete(kartid);
 		return "redirect:MykartPage";
 	}
+	@RequestMapping("OrderPage")
+	public String OrderPage(Principal principal, Model model) {
+		
+		List<Mykart> mykartList = mykartDAO.getByEmail(principal.getName());
+		model.addAttribute("mykartList", mykartList);
+		model.addAttribute("OrderPage", true);
+		return "userLogin";
+
+	}
+	
 	@ModelAttribute
 	public void commonToUser(Model model){
 		model.addAttribute("isUser", "true");
 	}
+	
 }

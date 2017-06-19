@@ -23,7 +23,7 @@
      <input placeholder="Email" name="email"  value="${billing.email}">
      <input placeholder="Phone" name="contact"  value="${billing.contact}">
     <input placeholder="Address 1"name="address"  value="${billing.address}">
-    <input placeholder="Zip" name="zipcode"  value="${billing.zipcode}">
+    <input placeholder="Zipcode" name="zipcode"  value="${billing.zipcode}">
   <br><br><button ><a class="btn btn-warning" href="billingAddress?billingId=${billing.bid}">Deliver Here</a></button><br><br>
   
  </div></div>

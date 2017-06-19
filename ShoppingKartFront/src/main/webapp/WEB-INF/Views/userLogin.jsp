@@ -8,6 +8,9 @@
 <c:when test="${not empty productDetails}">
    <%@include file="/WEB-INF/Views/ProductDescription.jsp" %>
 </c:when>
+<c:when test="${not empty OrderPage}">
+   <%@include file="/WEB-INF/Views/OrderHistory.jsp" %>
+</c:when>
 <c:when test="${not empty isUserClickerdAddtoKart}">
    <%@include file="/WEB-INF/Views/Mykart.jsp" %>
 </c:when>

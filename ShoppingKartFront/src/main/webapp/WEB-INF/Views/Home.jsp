@@ -7,7 +7,7 @@
 	</center>
 
 </div>
-<span style="color: white;">${message}${email }</span>
+<span style="color: white;">${message}${email}</span>
 <jsp:include page="Menu.jsp"></jsp:include>
 
 

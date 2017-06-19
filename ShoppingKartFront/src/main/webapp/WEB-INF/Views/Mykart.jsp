@@ -38,16 +38,17 @@
 			</tr>
 			
 		</table>
-		
+		<c:if test="${isMykartEmpty=='false' }">
 		<p>
 			<a   class="btn btn-info" href="proceed">Proceed</a>
 			 
                    
-		</p>
+		</p></c:if>
 
+		<c:if test="${isMykartEmpty=='true' }">
 
-                        
-                       
+               <p><center> <b>    No item found  </b>  </center></p>
+              </c:if>         
 </div>
 
 

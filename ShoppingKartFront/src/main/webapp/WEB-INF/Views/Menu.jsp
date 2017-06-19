@@ -2,7 +2,7 @@
 
 <nav>	
     <ul class="nav navbar-nav">
-               <li><a href="#">HOME</a></li>
+               <li><a href="afterlogin">HOME</a></li>
    
     <c:choose>
     
@@ -30,11 +30,12 @@
     
 
   <c:when test="${isUser=='true'}">
-<li><a href="#">PRODUCTS</a></li>
+<li><a href="OrderPage">HISTORY</a></li>
 <li><a href="#">SERVICES</a></li>
       <li><a href="#">ABOUT</a></li>
       <li><a href="#">CONTACT US</a></li>
 <li style="float:right;"><a href="logout">LOGOUT</a></li>
+
 <li style="float:right;"><a href="MykartPage">MYKART</a></li>
                     	
 </c:when>

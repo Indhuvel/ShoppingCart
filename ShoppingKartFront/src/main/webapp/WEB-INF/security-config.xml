@@ -11,6 +11,39 @@
        
 <security:http auto-config="true" use-expressions="true">
 
+<!-- intercept url starting -->
+		<security:intercept-url pattern="/MykartPage**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/proceed"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/ThankyouPage"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/OrderPage"
+			access="hasRole('ROLE_USER')" />
+			
+		<security:intercept-url pattern="/ProductsPage"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/ViewProductsPage"
+			access="hasRole('ROLE_ADMIN')" />
+        <security:intercept-url pattern="/editProducts?productId**"
+			access="hasRole('ROLE_ADMIN')" />
+			<security:intercept-url pattern="/ViewSupplierPage"
+			access="hasRole('ROLE_ADMIN')" />
+			<security:intercept-url pattern="/SupplierPage"
+			access="hasRole('ROLE_ADMIN')" />
+			<security:intercept-url pattern="/editSupplier?supplierId**"
+			access="hasRole('ROLE_ADMIN')" />
+			<security:intercept-url pattern="/ViewCategoryPage"
+			access="hasRole('ROLE_ADMIN')" />
+			<security:intercept-url pattern="/editCategory?categoryId**"
+			access="hasRole('ROLE_ADMIN')" />
+			<security:intercept-url pattern="/CategoryPage"
+			access="hasRole('ROLE_ADMIN')" />
+
+		<!-- <security:access-denied-handler
+			error-page="/accessDenied" />
+		<security:csrf /> -->
+		
 	<security:form-login
 			login-processing-url="/signIn" 
 			default-target-url="/afterlogin"

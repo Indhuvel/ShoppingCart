@@ -75,6 +75,7 @@ public class ShippingaddressController {
 		for (Mykart c : mykartList) {
 			c.setSid(shippingId);
 			c.setStatus("P");
+			c.setProductid(c.getProductid()+" ");
 			mykartDAO.update(c);
 		}
 		model.addAttribute("deliverhereClicked", true);
